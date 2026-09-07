@@ -100,6 +100,8 @@ p { line-height: 1.75; }
 .step-number { display: inline-flex; align-items: center; justify-content: center; width: 2.4rem; height: 2.4rem; border-radius: 50%; background: #e9eedf; font-size: .75rem; margin-bottom: 1.5rem; }
 .process-step p { font-size: .95rem; color: var(--muted); }
 .about-section { border-block: 1px solid #d8dfd7; }
+.about-portrait { display: block; width: 100%; max-width: 320px; height: auto; border-radius: 8px; }
+@media (max-width: 767.98px) { .about-portrait { max-width: 240px; } }
 .about-lead { font-size: 1.35rem; line-height: 1.6; }
 .faq details { border-bottom: 1px solid #d8dfd7; padding-block: 1.3rem; }
 .faq details:first-child { border-top: 1px solid #d8dfd7; }
