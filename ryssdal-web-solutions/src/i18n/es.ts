@@ -9,7 +9,7 @@ export const es: Dictionary = {
   solutionsTitle: "Soluciones digitales", solutionsText: "Reservas, formularios y conexiones entre sistemas. Herramientas prácticas para organizarte mejor y reducir el trabajo manual.",
   supportTitle: "Soporte continuo", supportText: "Ayuda con actualizaciones, corrección de errores y nuevas funciones. Acordamos el soporte que necesitas después del lanzamiento.",
   aboutTitle: "Hola, soy Jon.",
-  aboutText: "Me formé como desarrollador backend en Noroff y soy la persona detrás de Ryssdal Web Solutions. Trabajas directamente conmigo desde la primera conversación hasta la solución final.",
+  aboutText: "Soy desarrollador backend formado en Noroff, vivo en Moss, Noruega, y soy la persona detrás de Ryssdal Web Solutions. Trabajas directamente conmigo desde la primera conversación hasta la solución final.",
   aboutProcess: "Partimos de tus necesidades. Recibes una propuesta clara con precio y alcance antes de empezar.",
   contactTitle: "¿Tienes algo en mente?", contactText: "Cuéntame brevemente qué necesitas y hablamos sin compromiso.", subject: "Solución web para mi empresa",
   projectsTitle: "De una idea a una solución funcional.", projectsEmpty: "Próximamente: proyectos", projectsText: "Aquí mostraré las soluciones que he desarrollado y las necesidades que resuelven.", projectIdea: "¿Tienes una idea para un proyecto?", viewProject: "Ver proyecto",

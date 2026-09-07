@@ -8,7 +8,7 @@
   solutionsTitle: "Digitale løsninger", solutionsText: "Booking, skjemaer og koblinger mellom systemer. Praktiske løsninger som gir bedre oversikt og mindre manuelt arbeid.",
   supportTitle: "Oppfølging", supportText: "Hjelp med oppdateringer, feilretting og nye funksjoner. Vi avtaler hva du trenger etter lansering.",
   aboutTitle: "Hei, jeg er Jon.",
-  aboutText: "Jeg er utdannet backend-utvikler fra Noroff og står bak Ryssdal Web Solutions. Du samarbeider direkte med meg fra første samtale til ferdig løsning.",
+  aboutText: "Jeg er backend-utvikler utdannet ved Noroff, bosatt i Moss, Norge, og står bak Ryssdal Web Solutions. Du samarbeider direkte med meg fra første samtale til ferdig løsning.",
   aboutProcess: "Vi starter med behovet ditt. Du får et konkret forslag med pris og omfang før arbeidet begynner.",
   contactTitle: "Har du noe i tankene?", contactText: "Fortell kort hva du trenger. Så tar vi en uforpliktende prat.", subject: "Nettløsning for min bedrift",
   projectsTitle: "Fra behov til ferdig løsning.", projectsEmpty: "Prosjekter kommer her", projectsText: "Her vil jeg vise løsninger jeg har utviklet, og fortelle om behovene bak dem.", projectIdea: "Har du en idé til et prosjekt?", viewProject: "Se prosjekt",
