@@ -28,6 +28,8 @@ Legg til objekter i `projects`-listen i `src/data/projects.ts`. Hvert prosjekt h
 - `src/app/page.tsx`: metadata og rekkefølgen på forsidens seksjoner.
 - `src/components/home/`: Hero, Services, SolutionExamples, Process, About, FAQ og Contact. Rediger tekst og struktur i den aktuelle seksjonskomponenten.
 - `src/components/Projects.tsx`: prosjektseksjonen.
+- `src/components/ui/`: gjenbrukbare byggeklosser for seksjoner, overskrifter, kort og lenker.
+- `src/data/faq.ts`: spørsmål og svar.
 - `src/data/services.ts`: tjenestebeskrivelser og punktlister.
 - `src/data/process.ts`: trinnene i arbeidsprosessen.
 - `src/data/contact.ts`: e-post og telefon, delt mellom Contact og Footer.
@@ -38,5 +40,14 @@ Legg til objekter i `projects`-listen i `src/data/projects.ts`. Hvert prosjekt h
 - `src/app/icon.svg`: nettstedets ikon.
 
 Kontaktlenkene åpner brukerens e-postprogram eller telefon. Ingen skjemaopplysninger samles inn på nettstedet. FAQ bruker native details/summary. Eksempler beskriver mulige løsninger og er ikke kundereferanser.
+
+### Gjenbrukbare komponenter
+
+- `Section`: semantisk seksjon med Bootstrap-container. `headingId` peker til overskriftens ID; valgfri `id` brukes til menylenker. Standardklasse er `section-space`; en eksplisitt `className` erstatter denne.
+- `SectionHeading`: liten overtekst og h2-overskrift. Støtter JSX i overskriften, for eksempel linjeskift. Hero beholder sin egen h1.
+- `ContentCard`: felles kort for tjenester og prosjekter med etikett, tittel, beskrivelse, valgfritt innhold og handlingslenke.
+- `ArrowLink`: vanlig lenke med dekorativ pil som skjules for skjermlesere. Støtter standard lenkeattributter, inkludert CSS-klasser og tilgjengelighetsnavn.
+
+Seksjonskomponentene setter sammen byggeklossene og bestemmer kolonneoppsett. Behold særegne elementer lokalt fremfor å lage nye abstraksjoner for hvert HTML-element. De delte komponentene er serverkomponenter og trenger ingen ekstra klient-JavaScript.
 
 Før offentlig lansering: bekreft tjenestetilbud og kontaktinformasjon, legg til organisasjonsnummer når foretaket er registrert, og konfigurer endelig domene for canonical-URL og sitemap. Oppdater kontaktopplysninger i `src/data/contact.ts` ved endringer.

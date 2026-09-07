@@ -4,11 +4,14 @@ import Link from "next/link";
 import { useRef, useState } from "react";
 
 const links = [
+  ["Hjem", "/#hjem"],
   ["Tjenester", "/#tjenester"],
   ["Prosjekter", "/#prosjekter"],
+  ["Løsningseksempler", "/#eksempler"],
   ["Slik jobber jeg", "/#slik-jobber-jeg"],
-  ["Om", "/#om"],
-  ["Ta kontakt", "/#kontakt"],
+  ["Om meg", "/#om"],
+  ["Spørsmål og svar", "/#sporsmal"],
+  ["Kontakt", "/#kontakt"],
 ];
 
 export default function Navbar() {
@@ -16,7 +19,7 @@ export default function Navbar() {
   const toggleRef = useRef<HTMLButtonElement>(null);
   return (
     <header className="site-header">
-      <nav className="navbar navbar-expand-md py-3" aria-label="Hovedmeny"
+      <nav className="navbar navbar-expand-xl py-3" aria-label="Hovedmeny"
         onKeyDown={(event) => {
           if (event.key === "Escape" && isOpen) {
             setIsOpen(false);
@@ -32,7 +35,7 @@ export default function Navbar() {
             <span className="navbar-toggler-icon" aria-hidden="true" />
           </button>
           <div id="main-navigation" className={`collapse navbar-collapse${isOpen ? " show" : ""}`}>
-            <ul className="navbar-nav ms-auto mt-3 mt-md-0 align-items-md-center">
+            <ul className="navbar-nav ms-auto mt-3 mt-xl-0 align-items-xl-center">
               {links.map(([label, href]) => <li className="nav-item" key={href}><Link className={`nav-link${href === "/#kontakt" ? " nav-contact" : ""}`} href={href} onClick={() => setIsOpen(false)}>{label}</Link></li>)}
             </ul>
           </div>

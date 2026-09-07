@@ -22,7 +22,18 @@ p { line-height: 1.75; }
 .brand-symbol { background: var(--ink); color: var(--accent); padding: .6rem .7rem; font-size: 1.3rem; flex-shrink: 0; }
 .brand-subtitle { display: block; font-size: .7rem; letter-spacing: .1em; font-weight: 400; margin-top: .3rem; }
 .navbar .nav-link { color: var(--ink); font-size: .9rem; margin-inline: .35rem; }
-.navbar .nav-contact { background: var(--ink); color: white; padding-inline: 1.1rem; border-radius: 4px; }
+.navbar .nav-link.nav-contact {
+  background-color: #123e3b;
+  color: #fff;
+  padding-inline: 1.1rem;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+.navbar .nav-link.nav-contact:hover,
+.navbar .nav-link.nav-contact:focus-visible {
+  background-color: #20534e;
+  color: #fff;
+}
 .skip-link { position: fixed; top: .5rem; left: 1rem; z-index: 200; background: white; padding: .7rem; transform: translateY(-200%); }
 .skip-link:focus { transform: translateY(0); }
 .hero, .contact-section {
@@ -103,7 +114,10 @@ p { line-height: 1.75; }
   .hero { padding-top: 3.5rem; }
   .hero-note { padding-left: 1.5rem; }
   .hero-bottom { margin-top: 2.5rem; }
-  .navbar .nav-contact { display: inline-block; margin-top: .5rem; }
   .service-number { margin-bottom: 1.5rem; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+@media (max-width: 1199.98px) {
+  .navbar .nav-contact { display: inline-block; margin-top: .5rem; }
+  #main-navigation { max-height: calc(100dvh - 6rem); overflow-y: auto; }
+}
