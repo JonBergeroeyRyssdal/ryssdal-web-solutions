@@ -1,17 +1,19 @@
 ﻿# Ryssdal Web Solutions
 
-Bedriftsside bygget med Next.js App Router, TypeScript og Bootstrap 5.
+Next.js App Router, TypeScript og Bootstrap 5.
 
-## Lokal utvikling
+## Utvikling
 
 ```powershell
 npm.cmd install
 npm.cmd run dev
 ```
 
-Åpne adressen som terminalen viser (vanligvis http://localhost:3000).
+Åpne `/nb`, `/en` eller `/es` på adressen terminalen viser. `/` videresendes til `/nb`.
 
-## Kontroller og produksjon
+## Produksjon og kontroller
+
+Kopier `.env.example` til `.env.local` og sett `SITE_URL` til det faktiske domenet, for eksempel `https://ditt-domene.no`, før produksjonsbygg. Verdien skal bare inneholde protokoll og domene, uten sti, query eller fragment. Lokalt brukes `http://localhost:3000` hvis variabelen mangler. Ikke publiser med localhost som SITE_URL.
 
 ```powershell
 npm.cmd run lint
@@ -19,50 +21,33 @@ npm.cmd run build
 npm.cmd start
 ```
 
-## Innhold og struktur
+## Språk og SEO
 
-### Legge til prosjekter
+- `src/app/[lang]/layout.tsx`: HTML-språk, servergenererte metadata og felles layout.
+- `src/app/[lang]/page.tsx`: rekkefølgen på seksjonene.
+- `src/i18n/nb.ts`, `en.ts`, `es.ts`: oversettelser. `title` brukes som SEO-tittel og `heroText` som metabeskrivelse.
+- `src/i18n/config.ts`: støttede språk og ordbøker.
+- `src/i18n/seo.ts`: domene og alternative språkadresser.
+- `src/app/sitemap.ts` og `robots.ts`: sitemap med alle tre språk og lenke fra robots.txt.
 
-Legg til objekter i `projects`-listen i `src/data/projects.ts`. Hvert prosjekt har `title`, `category`, `description` og valgfri `href`. Filen inneholder et kommentert eksempel. Prosjektkort vises automatisk når listen har innhold; frem til da vises «Prosjekter kommer her». Bruk kategorien Kundeprosjekt, Demoprosjekt eller Studieprosjekt etter hva prosjektet er.
+Hver språkadresse har egen canonical, oversatt tittel og beskrivelse, Open Graph- og Twitter-metadata samt gjensidige hreflang-lenker. Norsk er x-default. Språkknappene er vanlige navigasjonslenker. Nettadressen bestemmer språk også ved direkte besøk, omlasting og deling. Det tidligere localStorage-valget brukes ikke lenger.
 
-- `src/app/page.tsx`: metadata og rekkefølgen på forsidens seksjoner.
-- `src/components/home/`: Hero, Services, SolutionExamples, Process, About, FAQ og Contact. Rediger tekst og struktur i den aktuelle seksjonskomponenten.
-- `src/components/Projects.tsx`: prosjektseksjonen.
-- `src/components/ui/`: gjenbrukbare byggeklosser for seksjoner, overskrifter, kort og lenker.
-- `src/data/faq.ts`: spørsmål og svar.
-- `src/data/services.ts`: tjenestebeskrivelser og punktlister.
-- `src/data/process.ts`: trinnene i arbeidsprosessen.
-- `src/data/contact.ts`: e-post og telefon, delt mellom Contact og Footer.
-- `src/app/layout.tsx`: felles layout, norsk språk og metadata for søk og deling.
-- `src/app/globals.css`: egne stiler, farger, typografi og mobiltilpasning etter Bootstrap.
-- `src/components/Navbar.tsx`: Bootstrap-navbar med React-styrt mobilmeny.
-- `src/components/Footer.tsx`: kontaktinformasjon og opphavsrett.
-- `src/app/icon.svg`: nettstedets ikon.
+`LanguageProvider` får språk og oversettelser fra serverlayouten. Den endrer ikke HTML-språk eller metadata i etterkant. Unsupported språk gir 404. Forsidens seksjonslenker beholder valgt språk.
 
-Kontaktlenkene åpner brukerens e-postprogram eller telefon. Ingen skjemaopplysninger samles inn på nettstedet. FAQ bruker native details/summary. Eksempler beskriver mulige løsninger og er ikke kundereferanser.
+## Komponenter og innhold
 
-### Gjenbrukbare komponenter
+- `components/home/`: synlige seksjoner Hero, Services, About og Contact. FAQ, Process og SolutionExamples er beholdt, men ikke vist eller oversatt.
+- `components/Projects.tsx`: prosjektoversikt og tomtilstand.
+- `components/ui/Section.tsx`: seksjon med Bootstrap-container og kobling til overskrift.
+- `components/ui/SectionHeading.tsx`: overtekst og h2.
+- `components/ui/ContentCard.tsx`: kort med tittel, beskrivelse og valgfritt innhold.
+- `components/ui/ArrowLink.tsx`: lenke med dekorativ pil.
+- `data/services.ts`: setter sammen tjenester fra språkfilen.
+- `data/contact.ts`: felles kontaktinformasjon.
+- `app/globals.css`: farger, typografi og responsivt design.
 
-- `Section`: semantisk seksjon med Bootstrap-container. `headingId` peker til overskriftens ID; valgfri `id` brukes til menylenker. Standardklasse er `section-space`; en eksplisitt `className` erstatter denne.
-- `SectionHeading`: liten overtekst og h2-overskrift. Støtter JSX i overskriften, for eksempel linjeskift. Hero beholder sin egen h1.
-- `ContentCard`: felles kort for tjenester og prosjekter med etikett, tittel, beskrivelse, valgfritt innhold og handlingslenke.
-- `ArrowLink`: vanlig lenke med dekorativ pil som skjules for skjermlesere. Støtter standard lenkeattributter, inkludert CSS-klasser og tilgjengelighetsnavn.
+## Prosjekter
 
-Seksjonskomponentene setter sammen byggeklossene og bestemmer kolonneoppsett. Behold særegne elementer lokalt fremfor å lage nye abstraksjoner for hvert HTML-element. De delte komponentene er serverkomponenter og trenger ingen ekstra klient-JavaScript.
+Legg prosjekter i `src/data/projects.ts` med `title`, `category`, `description` og valgfri `href`. Bruk Kundeprosjekt, Demoprosjekt eller Studieprosjekt. Legg til `translations: { en: { title: "...", description: "..." }, es: { title: "...", description: "..." } }` for oversatte prosjekttekster. Originalteksten brukes dersom oversettelse mangler.
 
-Før offentlig lansering: bekreft tjenestetilbud og kontaktinformasjon, legg til organisasjonsnummer når foretaket er registrert, og konfigurer endelig domene for canonical-URL og sitemap. Oppdater kontaktopplysninger i `src/data/contact.ts` ved endringer.
-
-### Forenklet forside
-
-Forsiden viser Hero, Services, Projects, About og Contact. Menyen har fire valg: Tjenester, Prosjekter, Om meg og Kontakt. FAQ, Process og SolutionExamples er beholdt som komponenter, men vises ikke på forsiden. Tjenestene er samlet i tre korte beskrivelser i src/data/services.ts.
-
-
-### Språk
-
-Språkvelgeren tilbyr norsk (nb), engelsk (en) og spansk (es). Rediger synlige tekster i `src/i18n/nb.ts`, `en.ts` og `es.ts`. TypeScript krever samme tekstnøkler på alle språk. `src/data/services.ts` setter sammen tjenestene fra valgt språk.
-
-`LanguageProvider` håndterer språkvalg, dokumentets språk og sidetittel. `LanguageSwitcher` viser knappene. Valget lagres lokalt i nettleseren; hvis lagring blokkeres, fungerer byttet fortsatt for gjeldende besøk. Første servervisning er norsk. Oversettelsene deler URL, og servermetadata for søk og deling er fortsatt norske. Egne språkadresser og hreflang kan legges til ved behov.
-
-Prosjekter kan få `translations: { en: { title: "...", description: "..." }, es: { title: "...", description: "..." } }`. Originalteksten brukes når en oversettelse mangler. De inaktive FAQ-, prosess- og eksempelkomponentene er ikke oversatt.
-
-Synlige seksjoner bruker nå klientkontekst for språkbytte. De delte UI-komponentene er uten egen tilstand og følger klientgrensen når de importeres fra disse seksjonene.
+Kontaktlenkene åpner e-post eller telefon. Foretakets organisasjonsnummer legges til når registreringen er klar.

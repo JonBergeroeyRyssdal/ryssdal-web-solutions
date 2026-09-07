@@ -1,35 +1,14 @@
 ﻿"use client";
 
-import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
-import { nb, type Dictionary } from "@/i18n/nb";
-import { en } from "@/i18n/en";
-import { es } from "@/i18n/es";
+import { createContext, useContext, type ReactNode } from "react";
+import type { Dictionary } from "@/i18n/nb";
+import type { Language } from "@/i18n/config";
+export type { Language } from "@/i18n/config";
 
-export type Language = "nb" | "en" | "es";
-const dictionaries = { nb, en, es };
-const LanguageContext = createContext<{ language: Language; t: Dictionary; setLanguage: (language: Language) => void } | null>(null);
+const LanguageContext = createContext<{ language: Language; t: Dictionary } | null>(null);
 
-export default function LanguageProvider({ children }: { children: ReactNode }) {
-  const [language, setLanguage] = useState<Language>("nb");
-  useEffect(() => {
-    try {
-      const saved = localStorage.getItem("rws-language");
-      if (saved === "nb" || saved === "en" || saved === "es") {
-        // Restore the preference only after hydration so server and client agree.
-        // eslint-disable-next-line react-hooks/set-state-in-effect
-        setLanguage(saved);
-      }
-    } catch { /* Language selection still works when storage is unavailable. */ }
-  }, []);
-  useEffect(() => {
-    document.documentElement.lang = language;
-    document.title = dictionaries[language].title;
-  }, [language]);
-  function selectLanguage(next: Language) {
-    setLanguage(next);
-    try { localStorage.setItem("rws-language", next); } catch { /* Storage is optional. */ }
-  }
-  return <LanguageContext.Provider value={{ language, t: dictionaries[language], setLanguage: selectLanguage }}>{children}</LanguageContext.Provider>;
+export default function LanguageProvider({ children, language, dictionary }: { children: ReactNode; language: Language; dictionary: Dictionary }) {
+  return <LanguageContext.Provider value={{ language, t: dictionary }}>{children}</LanguageContext.Provider>;
 }
 
 export function useLanguage() {

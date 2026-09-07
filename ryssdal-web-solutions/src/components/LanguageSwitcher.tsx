@@ -1,5 +1,6 @@
 ﻿"use client";
 
+import Link from "next/link";
 import { useLanguage, type Language } from "./LanguageProvider";
 const languages: { code: Language; label: string }[] = [
   { code: "nb", label: "Norsk" },
@@ -8,12 +9,14 @@ const languages: { code: Language; label: string }[] = [
 ];
 
 export default function LanguageSwitcher() {
-  const { language, setLanguage, t } = useLanguage();
+  const { language, t } = useLanguage();
   return (
     <div className="language-switcher" role="group" aria-label={t.language}>
       {languages.map(({ code, label }) => (
-        <button key={code} type="button" lang={code} aria-pressed={language === code}
-          onClick={() => setLanguage(code)}>{label}</button>
+        <Link key={code} href={`/${code}`} hrefLang={code} lang={code}
+          aria-current={language === code ? "page" : undefined}>
+          {label}
+        </Link>
       ))}
     </div>
   );

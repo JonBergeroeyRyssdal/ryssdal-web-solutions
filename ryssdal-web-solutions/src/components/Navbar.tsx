@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useLanguage } from "@/components/LanguageProvider";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
@@ -8,8 +8,8 @@ import { useRef, useState } from "react";
 
 
 export default function Navbar() {
-  const { t } = useLanguage();
-  const links = [[t.services, "/#tjenester"], [t.projects, "/#prosjekter"], [t.about, "/#om"], [t.contact, "/#kontakt"]];
+  const { t, language } = useLanguage();
+  const links = [[t.services, `/${language}#tjenester`], [t.projects, `/${language}#prosjekter`], [t.about, `/${language}#om`], [t.contact, `/${language}#kontakt`]];
   const [isOpen, setIsOpen] = useState(false);
   const toggleRef = useRef<HTMLButtonElement>(null);
   return (
@@ -22,7 +22,7 @@ export default function Navbar() {
           }
         }}>
         <div className="container">
-          <Link className="navbar-brand site-brand fw-semibold" href="/" onClick={() => setIsOpen(false)} aria-label={`Ryssdal Web Solutions – ${t.home}`}>
+          <Link className="navbar-brand site-brand fw-semibold" href={`/${language}`} onClick={() => setIsOpen(false)} aria-label={`Ryssdal Web Solutions – ${t.home}`}>
             <span className="brand-symbol" aria-hidden="true">R /</span>
             <span>RYSSDAL<span className="brand-subtitle">WEB SOLUTIONS</span></span>
           </Link>
@@ -32,7 +32,7 @@ export default function Navbar() {
           </button>
           <div id="main-navigation" className={`collapse navbar-collapse${isOpen ? " show" : ""}`}>
             <ul className="navbar-nav ms-auto mt-3 mt-xl-0 align-items-xl-center">
-              {links.map(([label, href]) => <li className="nav-item" key={href}><Link className={`nav-link${href === "/#kontakt" ? " nav-contact" : ""}`} href={href} onClick={() => setIsOpen(false)}>{label}</Link></li>)}
+              {links.map(([label, href]) => <li className="nav-item" key={href}><Link className={`nav-link${href === `/${language}#kontakt` ? " nav-contact" : ""}`} href={href} onClick={() => setIsOpen(false)}>{label}</Link></li>)}
             </ul>
           </div>
         </div>
@@ -40,3 +40,4 @@ export default function Navbar() {
     </header>
   );
 }
+
