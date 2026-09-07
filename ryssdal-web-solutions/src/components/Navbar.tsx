@@ -4,13 +4,9 @@ import Link from "next/link";
 import { useRef, useState } from "react";
 
 const links = [
-  ["Hjem", "/#hjem"],
   ["Tjenester", "/#tjenester"],
   ["Prosjekter", "/#prosjekter"],
-  ["Løsningseksempler", "/#eksempler"],
-  ["Slik jobber jeg", "/#slik-jobber-jeg"],
   ["Om meg", "/#om"],
-  ["Spørsmål og svar", "/#sporsmal"],
   ["Kontakt", "/#kontakt"],
 ];
 

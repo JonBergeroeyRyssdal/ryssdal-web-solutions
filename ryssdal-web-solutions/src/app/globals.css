@@ -40,7 +40,7 @@ p { line-height: 1.75; }
   background-color: #123e3b;
   color: #fff;
 }
-.hero { padding: 6rem 0 0; }
+.hero { padding: 5rem 0; }
 .hero h1, .hero .eyebrow { color: #fff; }
 .hero h1 span { color: var(--accent); }
 .eyebrow { font-size: .72rem; letter-spacing: .15em; font-weight: 700; margin-bottom: 1.3rem; }
@@ -81,6 +81,7 @@ p { line-height: 1.75; }
 .service-number { color: #667d5c; font-size: .85rem; margin-bottom: 2.5rem; }
 .service-card h3 { font-size: 1.55rem; max-width: 260px; margin-bottom: 1rem; }
 .service-card p, .service-card li { color: var(--muted); font-size: .95rem; }
+.service-card > p:last-child { margin-bottom: 0; }
 .service-card ul { padding-left: 1.1rem; margin-bottom: 2rem; }
 .service-card li { padding-block: .4rem; }
 .service-card li::marker { color: #749044; }

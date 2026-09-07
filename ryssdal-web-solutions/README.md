@@ -51,3 +51,8 @@ Kontaktlenkene åpner brukerens e-postprogram eller telefon. Ingen skjemaopplysn
 Seksjonskomponentene setter sammen byggeklossene og bestemmer kolonneoppsett. Behold særegne elementer lokalt fremfor å lage nye abstraksjoner for hvert HTML-element. De delte komponentene er serverkomponenter og trenger ingen ekstra klient-JavaScript.
 
 Før offentlig lansering: bekreft tjenestetilbud og kontaktinformasjon, legg til organisasjonsnummer når foretaket er registrert, og konfigurer endelig domene for canonical-URL og sitemap. Oppdater kontaktopplysninger i `src/data/contact.ts` ved endringer.
+
+### Forenklet forside
+
+Forsiden viser Hero, Services, Projects, About og Contact. Menyen har fire valg: Tjenester, Prosjekter, Om meg og Kontakt. FAQ, Process og SolutionExamples er beholdt som komponenter, men vises ikke på forsiden. Tjenestene er samlet i tre korte beskrivelser i src/data/services.ts.
+
