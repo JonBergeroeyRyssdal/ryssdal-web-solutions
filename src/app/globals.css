@@ -43,7 +43,7 @@ p { line-height: 1.75; }
 .hero { padding: 5rem 0; }
 .hero h1, .hero .eyebrow { color: #fff; }
 .hero h1 span { color: var(--accent); }
-.eyebrow { font-size: .72rem; letter-spacing: .15em; font-weight: 700; margin-bottom: 1.3rem; }
+.eyebrow { font-size: .95rem; letter-spacing: .1em; font-weight: 700; margin-bottom: 1.3rem; }
 .status-dot { display: inline-block; width: .5rem; height: .5rem; border-radius: 50%; background: var(--accent); margin-right: .5rem; }
 .hero-intro { max-width: 620px; color: #d6e0dc; font-size: 1.1rem; margin-top: 1.5rem; }
 .btn { padding: .9rem 1.2rem; font-weight: 600; font-size: .9rem; border-radius: 4px; }
