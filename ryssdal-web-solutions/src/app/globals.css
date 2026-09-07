@@ -122,3 +122,14 @@ p { line-height: 1.75; }
   .navbar .nav-contact { display: inline-block; margin-top: .5rem; }
   #main-navigation { max-height: calc(100dvh - 6rem); overflow-y: auto; }
 }
+
+.language-switcher { display: flex; gap: .15rem; border: 1px solid #bdcbb4; border-radius: 5px; padding: .2rem; margin-left: auto; margin-right: .75rem; }
+.language-switcher button { border: 0; border-radius: 3px; padding: .4rem .5rem; font-size: .8rem; background: transparent; color: #123e3b; }
+.language-switcher button[aria-pressed="true"] { background: #123e3b; color: #fff; }
+.language-switcher button:hover { background: #e3eadb; color: #123e3b; }
+@media (min-width: 1200px) { .language-switcher { order: 3; margin-left: 1rem; margin-right: 0; } }
+@media (max-width: 575.98px) {
+  .language-switcher { order: 3; width: 100%; margin: .8rem 0 0; justify-content: center; }
+  #main-navigation { order: 4; max-height: calc(100dvh - 10rem); }
+  html { scroll-padding-top: 10rem; }
+}

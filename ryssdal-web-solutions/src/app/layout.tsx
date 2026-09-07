@@ -2,6 +2,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import LanguageProvider, { SkipLink } from "@/components/LanguageProvider";
 import "./globals.css";
 
 const description = "Nettsider, skreddersydde nettløsninger og integrasjoner for små bedrifter. Direkte samarbeid med utvikleren, fra første idé til ferdig løsning.";
@@ -17,10 +18,12 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="nb">
       <body className="d-flex flex-column">
-        <a className="skip-link" href="#main-content">Hopp til innhold</a>
+        <LanguageProvider>
+        <SkipLink />
         <Navbar />
         {children}
         <Footer />
+        </LanguageProvider>
       </body>
     </html>
   );

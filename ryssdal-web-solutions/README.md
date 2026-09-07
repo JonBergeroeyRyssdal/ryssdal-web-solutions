@@ -56,3 +56,13 @@ Før offentlig lansering: bekreft tjenestetilbud og kontaktinformasjon, legg til
 
 Forsiden viser Hero, Services, Projects, About og Contact. Menyen har fire valg: Tjenester, Prosjekter, Om meg og Kontakt. FAQ, Process og SolutionExamples er beholdt som komponenter, men vises ikke på forsiden. Tjenestene er samlet i tre korte beskrivelser i src/data/services.ts.
 
+
+### Språk
+
+Språkvelgeren tilbyr norsk (nb), engelsk (en) og spansk (es). Rediger synlige tekster i `src/i18n/nb.ts`, `en.ts` og `es.ts`. TypeScript krever samme tekstnøkler på alle språk. `src/data/services.ts` setter sammen tjenestene fra valgt språk.
+
+`LanguageProvider` håndterer språkvalg, dokumentets språk og sidetittel. `LanguageSwitcher` viser knappene. Valget lagres lokalt i nettleseren; hvis lagring blokkeres, fungerer byttet fortsatt for gjeldende besøk. Første servervisning er norsk. Oversettelsene deler URL, og servermetadata for søk og deling er fortsatt norske. Egne språkadresser og hreflang kan legges til ved behov.
+
+Prosjekter kan få `translations: { en: { title: "...", description: "..." }, es: { title: "...", description: "..." } }`. Originalteksten brukes når en oversettelse mangler. De inaktive FAQ-, prosess- og eksempelkomponentene er ikke oversatt.
+
+Synlige seksjoner bruker nå klientkontekst for språkbytte. De delte UI-komponentene er uten egen tilstand og følger klientgrensen når de importeres fra disse seksjonene.

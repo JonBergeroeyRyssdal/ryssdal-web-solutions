@@ -1,17 +1,9 @@
-﻿export const services = [
-  {
-    number: "01",
-    title: "Nettsider",
-    text: "En ny, mobilvennlig nettside eller en oppgradering av den du har. Gjør det enkelt for kundene å finne deg og ta kontakt.",
-  },
-  {
-    number: "02",
-    title: "Digitale løsninger",
-    text: "Booking, skjemaer og koblinger mellom systemer. Praktiske løsninger som gir bedre oversikt og mindre manuelt arbeid.",
-  },
-  {
-    number: "03",
-    title: "Oppfølging",
-    text: "Hjelp med oppdateringer, feilretting og nye funksjoner. Vi avtaler hva du trenger etter lansering.",
-  },
-];
+﻿import type { Dictionary } from "@/i18n/nb";
+
+export function getServices(t: Dictionary) {
+  return [
+    { number: "01", title: t.websiteTitle, text: t.websiteText },
+    { number: "02", title: t.solutionsTitle, text: t.solutionsText },
+    { number: "03", title: t.supportTitle, text: t.supportText },
+  ];
+}

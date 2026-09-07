@@ -1,21 +1,20 @@
-﻿"use client";
+"use client";
 
+import { useLanguage } from "@/components/LanguageProvider";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 import Link from "next/link";
 import { useRef, useState } from "react";
 
-const links = [
-  ["Tjenester", "/#tjenester"],
-  ["Prosjekter", "/#prosjekter"],
-  ["Om meg", "/#om"],
-  ["Kontakt", "/#kontakt"],
-];
+
 
 export default function Navbar() {
+  const { t } = useLanguage();
+  const links = [[t.services, "/#tjenester"], [t.projects, "/#prosjekter"], [t.about, "/#om"], [t.contact, "/#kontakt"]];
   const [isOpen, setIsOpen] = useState(false);
   const toggleRef = useRef<HTMLButtonElement>(null);
   return (
     <header className="site-header">
-      <nav className="navbar navbar-expand-xl py-3" aria-label="Hovedmeny"
+      <nav className="navbar navbar-expand-xl py-3" aria-label={t.menu}
         onKeyDown={(event) => {
           if (event.key === "Escape" && isOpen) {
             setIsOpen(false);
@@ -23,11 +22,12 @@ export default function Navbar() {
           }
         }}>
         <div className="container">
-          <Link className="navbar-brand site-brand fw-semibold" href="/" onClick={() => setIsOpen(false)} aria-label="Ryssdal Web Solutions – hjem">
+          <Link className="navbar-brand site-brand fw-semibold" href="/" onClick={() => setIsOpen(false)} aria-label={`Ryssdal Web Solutions – ${t.home}`}>
             <span className="brand-symbol" aria-hidden="true">R /</span>
             <span>RYSSDAL<span className="brand-subtitle">WEB SOLUTIONS</span></span>
           </Link>
-          <button ref={toggleRef} className="navbar-toggler" type="button" aria-controls="main-navigation" aria-expanded={isOpen} aria-label={isOpen ? "Lukk meny" : "Åpne meny"} onClick={() => setIsOpen((open) => !open)}>
+          <LanguageSwitcher />
+          <button ref={toggleRef} className="navbar-toggler" type="button" aria-controls="main-navigation" aria-expanded={isOpen} aria-label={isOpen ? t.closeMenu : t.openMenu} onClick={() => setIsOpen((open) => !open)}>
             <span className="navbar-toggler-icon" aria-hidden="true" />
           </button>
           <div id="main-navigation" className={`collapse navbar-collapse${isOpen ? " show" : ""}`}>

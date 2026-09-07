@@ -1,4 +1,5 @@
 export type Project = {
+  translations?: Partial<Record<"en" | "es" | "nb", { title: string; description: string }>>;
   title: string;
   category: "Kundeprosjekt" | "Demoprosjekt" | "Studieprosjekt";
   description: string;
