@@ -25,7 +25,7 @@ export const en: Dictionary = {
   upgradeTitle: "Upgrading existing solutions", upgradeText: "I update and improve your existing websites and web solutions. This can include a fresh design, a better mobile experience or new features.",
   solutionsTitle: "Digital solutions", solutionsText: "Bookings, forms and connections between systems. Practical tools that help you stay organised and reduce manual work.",
   supportTitle: "Ongoing support", supportText: "Help with updates, bug fixes and new features. We agree on the support you need after launch.",
-  aboutText: "I’m a Noroff-trained backend developer based in Moss, Norway, and the person behind Ryssdal Web Solutions. You work directly with me from our first conversation to the finished solution.",
+  aboutText: "My name is Jon Bergerøy Ryssdal, and I’m the person behind Ryssdal Web Solutions. I’m a Noroff-trained backend developer based in Moss, Norway. You work directly with me from our first conversation to the finished solution.",
   aboutProcess: "We start with your needs. You receive a clear proposal with pricing and scope before work begins.",
   contactTitle: "Have something in mind?", contactText: "Tell me briefly what you need. Let’s have a chat, with no obligation.", subject: "Web solution for my business",
   projectsTitle: "Web solutions for clients", projectsEmpty: "Projects coming soon", projectsText: "Here I’ll share solutions I’ve built and explain the needs behind them.", projectIdea: "Have an idea for a project?", viewProject: "View project",

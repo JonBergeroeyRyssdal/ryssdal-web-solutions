@@ -24,7 +24,7 @@ export const nb = {
   upgradeTitle: "Oppgradering av eksisterende løsninger", upgradeText: "Jeg oppdaterer og videreutvikler nettsider og nettløsninger du allerede har. Det kan være nytt design, bedre mobiltilpasning eller nye funksjoner.",
   solutionsTitle: "Digitale løsninger", solutionsText: "Booking, skjemaer og koblinger mellom systemer. Praktiske løsninger som gir bedre oversikt og mindre manuelt arbeid.",
   supportTitle: "Oppfølging", supportText: "Hjelp med oppdateringer, feilretting og nye funksjoner. Vi avtaler hva du trenger etter lansering.",
-  aboutText: "Jeg er backend-utvikler utdannet ved Noroff, bosatt i Moss, Norge, og står bak Ryssdal Web Solutions. Du samarbeider direkte med meg fra første samtale til ferdig løsning.",
+  aboutText: "Jeg heter Jon Bergerøy Ryssdal og står bak Ryssdal Web Solutions. Jeg er backend-utvikler utdannet ved Noroff og holder til i Moss. Du samarbeider direkte med meg fra første samtale til ferdig løsning.",
   aboutProcess: "Vi starter med behovet ditt. Du får et konkret forslag med pris og omfang før arbeidet begynner.",
   contactTitle: "Har du noe i tankene?", contactText: "Fortell kort hva du trenger. Så tar vi en uforpliktende prat.", subject: "Nettløsning for min bedrift",
   projectsTitle: "Nettløsninger for kunder", projectsEmpty: "Prosjekter kommer her", projectsText: "Her vil jeg vise løsninger jeg har utviklet, og fortelle om behovene bak dem.", projectIdea: "Har du en idé til et prosjekt?", viewProject: "Se prosjekt",
