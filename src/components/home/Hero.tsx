@@ -12,6 +12,7 @@ export default function Hero() {
       <h1 id="hero-heading">{t.heroTitle}<br /><span>{t.heroAccent}</span></h1>
       <p className="hero-intro">{t.heroText}</p>
       <div className="mt-4">
+        <p>{t.heroInvitation}</p>
         <ArrowLink className="btn btn-accent" href="#kontakt">{t.contactAction}</ArrowLink>
       </div>
     </Section>

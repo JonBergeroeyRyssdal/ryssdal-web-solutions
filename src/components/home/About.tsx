@@ -22,8 +22,7 @@ export default function About() {
         </div>
         <div className="col-md-8">
           <SectionHeading id="about-heading" eyebrow={t.about}>{t.aboutTitle}</SectionHeading>
-          <p>{t.aboutText}</p>
-          <p className="mb-0">{t.aboutProcess}</p>
+          <p className="mb-0">{t.aboutText}</p>
         </div>
       </div>
     </Section>
