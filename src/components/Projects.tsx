@@ -33,7 +33,6 @@ export default function Projects() {
             <h3>{t.projectsEmpty}</h3>
             <p className="mb-0">{t.projectsText}</p>
           </div>
-          <ArrowLink href="#kontakt">{t.projectIdea}</ArrowLink>
         </div>
       )}
     </Section>

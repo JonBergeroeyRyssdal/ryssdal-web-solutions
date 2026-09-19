@@ -2,7 +2,7 @@
 
 import { useLanguage } from "@/components/LanguageProvider";
 import Image from "next/image";
-import portrait from "../../../public/jon-ryssdal.png";
+import portrait from "../../../public/ryssdal-solutions.png";
 import Section from "@/components/ui/Section";
 import SectionHeading from "@/components/ui/SectionHeading";
 
