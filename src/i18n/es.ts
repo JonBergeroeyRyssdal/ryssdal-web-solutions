@@ -30,7 +30,7 @@ export const es: Dictionary = {
   contactTitle: "¿Tienes algo en mente?", contactText: "Cuéntame brevemente qué necesitas y hablamos sin compromiso.", subject: "Solución web para mi empresa",
   projectsTitle: "Soluciones web para clientes", projectsEmpty: "Próximamente: proyectos", projectsText: "Aquí mostraré las soluciones que he desarrollado y las necesidades que resuelven.", projectIdea: "¿Tienes una idea para un proyecto?", viewProject: "Ver proyecto",
   clientProject: "Proyecto para un cliente", demoProject: "Proyecto de demostración", studyProject: "Proyecto académico",
-  footer: "Sitios web y soluciones digitales para empresas.", title: "Sitios web para empresas y organizaciones | Ryssdal Web Solutions",
+  footer: "Sitios web y soluciones digitales para empresas, organizaciones y asociaciones.", title: "Sitios web para empresas y organizaciones | Ryssdal Web Solutions",
   formTitle: "Envíame un mensaje",
   formRequired: "Los campos marcados con * son obligatorios.",
   formName: "Nombre",

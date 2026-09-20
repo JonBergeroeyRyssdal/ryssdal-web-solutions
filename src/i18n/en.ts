@@ -30,7 +30,7 @@ export const en: Dictionary = {
   contactTitle: "Have something in mind?", contactText: "Tell me briefly what you need. Let’s have a chat, with no obligation.", subject: "Web solution for my business",
   projectsTitle: "Web solutions for clients", projectsEmpty: "Projects coming soon", projectsText: "Here I’ll share solutions I’ve built and explain the needs behind them.", projectIdea: "Have an idea for a project?", viewProject: "View project",
   clientProject: "Client project", demoProject: "Demo project", studyProject: "Study project",
-  footer: "Websites and digital solutions for businesses.", title: "Websites for businesses and organisations | Ryssdal Web Solutions",
+  footer: "Websites and digital solutions for businesses, organisations and associations.", title: "Websites for businesses and organisations | Ryssdal Web Solutions",
   formTitle: "Send me a message",
   formRequired: "Fields marked with * are required.",
   formName: "Name",

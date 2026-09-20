@@ -29,7 +29,7 @@ export const nb = {
   contactTitle: "Har du noe i tankene?", contactText: "Fortell kort hva du trenger. Så tar vi en uforpliktende prat.", subject: "Nettløsning for min bedrift",
   projectsTitle: "Nettløsninger for kunder", projectsEmpty: "Prosjekter kommer her", projectsText: "Her vil jeg vise løsninger jeg har utviklet, og fortelle om behovene bak dem.", projectIdea: "Har du en idé til et prosjekt?", viewProject: "Se prosjekt",
   clientProject: "Kundeprosjekt", demoProject: "Demoprosjekt", studyProject: "Studieprosjekt",
-  footer: "Nettsider og digitale løsninger for bedrifter.",
+  footer: "Nettsider og digitale løsninger for bedrifter, organisasjoner og foreninger.",
   title: "Nettsider for bedrifter og organisasjoner | Ryssdal Web Solutions",
   formTitle: "Send meg en melding",
   formRequired: "Felter merket med * må fylles ut.",
