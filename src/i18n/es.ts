@@ -38,6 +38,7 @@ export const es: Dictionary = {
   formCompany: "Empresa / organización (opcional)",
   formPhone: "Teléfono (opcional)",
   formMessage: "Mensaje",
+  formSubject: "Asunto",
   formPrivacy: "Tus datos se me envían por correo a través de Resend y se utilizan para responder a tu consulta. No incluyas información sensible.",
   formSend: "Enviar mensaje",
   formSending: "Enviando …",

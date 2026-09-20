@@ -38,6 +38,7 @@ export const nb = {
   formCompany: "Firma / organisasjon (valgfritt)",
   formPhone: "Telefonnummer (valgfritt)",
   formMessage: "Melding",
+  formSubject: "Emne",
   formPrivacy: "Opplysningene sendes til meg på e-post via Resend og brukes til å følge opp henvendelsen din. Ikke send sensitive opplysninger.",
   formSend: "Send melding",
   formSending: "Sender …",

@@ -5,7 +5,7 @@ import ts from "typescript";
 
 const source = readFileSync(new URL("../src/app/api/contact/route.ts", import.meta.url), "utf8");
 const compiled = ts.transpileModule(source, { compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022 } }).outputText;
-const valid = { name: "Test Person", email: "visitor@example.com", company: "", phone: "", message: "Can you help with a website?", website: "" };
+const valid = { name: "Test Person", email: "visitor@example.com", company: "", phone: "", subject: "New website", message: "Can you help with a website?", website: "" };
 
 function setup(env = { SITE_URL: "https://example.com", RESEND_API_KEY: "test-key", CONTACT_FROM_EMAIL: "Website <website@example.com>" }, result = { id: "test-id" }, upstreamStatus = 200) {
   const calls = [];
@@ -31,6 +31,8 @@ test("sends only to the configured recipient with visitor Reply-To and plain tex
   const email = JSON.parse(calls[0].body);
   assert.deepEqual(email.to, ["jon@ryssdalwebsolutions.no"]);
   assert.equal(email.reply_to, valid.email);
+  assert.equal(email.subject, valid.subject);
+  assert.equal(email.from, '"Test Person via Ryssdal Web Solutions" <website@example.com>');
   assert.match(email.text, /Example/);
   assert.match(email.text, /\+47 12345678/);
   assert.equal(email.html, undefined);
@@ -43,6 +45,22 @@ test("rejects malformed, missing, oversized and injected fields without sending"
   }
   assert.equal((await send("x".repeat(24001))).status, 413);
   assert.equal(calls.length, 0);
+});
+
+test("rejects missing, empty, oversized and injected subjects", async () => {
+  const { send, calls } = setup();
+  for (const subject of [undefined, " ", "x".repeat(161), "Hello\r\nBcc: other@example.com"]) {
+    assert.equal((await send({ ...valid, subject })).status, 400);
+  }
+  assert.equal(calls.length, 0);
+});
+
+test("visitor name cannot replace the authenticated sender address", async () => {
+  const { send, calls } = setup();
+  assert.equal((await send({ ...valid, name: 'Test "Name" <other@example.com>' })).status, 200);
+  const email = JSON.parse(calls[0].body);
+  assert.equal(email.from, '"Test Name other@example.com via Ryssdal Web Solutions" <website@example.com>');
+  assert.equal((await send({ ...valid, name: "Test\r\nBcc: other@example.com" })).status, 400);
 });
 
 test("rejects foreign origin and unsupported content type", async () => {

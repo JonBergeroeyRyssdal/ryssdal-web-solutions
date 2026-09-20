@@ -40,7 +40,7 @@ export async function POST(request: Request) {
   }
 
   if (typeof input.website !== "string" || input.website.trim()) return error(400);
-  const limits = { name: 120, email: 254, company: 160, phone: 40, message: 5000 };
+  const limits = { name: 120, email: 254, company: 160, phone: 40, subject: 160, message: 5000 };
   const fields: Record<string, string> = {};
   for (const [key, max] of Object.entries(limits)) {
     const value = input[key];
@@ -48,12 +48,16 @@ export async function POST(request: Request) {
     fields[key] = value.trim();
     if (key !== "message" && /[\r\n\x00-\x1f\x7f]/.test(value)) return error(400);
   }
-  const { name, email, company, phone, message } = fields;
-  if (!name || !message || !/^[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+$/.test(email)) return error(400);
+  const { name, email, company, phone, subject, message } = fields;
+  if (!name || !subject || !message || !/^[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+$/.test(email)) return error(400);
 
   const apiKey = process.env.RESEND_API_KEY;
   const from = process.env.CONTACT_FROM_EMAIL;
   if (!apiKey || !from) return error(503);
+  // Keep the authenticated mailbox; only the display name comes from the visitor.
+  const fromAddress = (from.match(/<([^<>]+)>\s*$/)?.[1] || from).trim();
+  if (!/^[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+$/.test(fromAddress)) return error(503);
+  const displayName = name.replace(/["\\<>]/g, " ").replace(/\s+/g, " ").trim() || "Kunde";
 
   const now = Date.now();
   if (now >= windowEnd) {
@@ -70,10 +74,10 @@ export async function POST(request: Request) {
       method: "POST",
       headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
       body: JSON.stringify({
-        from,
+        from: `"${displayName} via Ryssdal Web Solutions" <${fromAddress}>`,
         to: [contact.email],
         reply_to: email,
-        subject: "Ny henvendelse fra nettsiden",
+        subject,
         text: `Navn: ${name}\nE-post: ${email}\nFirma / organisasjon: ${company || "Ikke oppgitt"}\nTelefon: ${phone || "Ikke oppgitt"}\n\nMelding:\n${message}`,
       }),
       signal: AbortSignal.timeout(10000),

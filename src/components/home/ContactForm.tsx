@@ -62,6 +62,10 @@ export default function ContactForm() {
             <input className="form-control" id="contact-phone" name="phone" type="tel" autoComplete="tel" maxLength={40} />
           </div>
           <div className="col-12">
+            <label className="form-label" htmlFor="contact-subject">{t.formSubject} *</label>
+            <input className="form-control" id="contact-subject" name="subject" required maxLength={160} />
+          </div>
+          <div className="col-12">
             <label className="form-label" htmlFor="contact-message">{t.formMessage} *</label>
             <textarea className="form-control" id="contact-message" name="message" rows={6} required maxLength={5000} />
           </div>

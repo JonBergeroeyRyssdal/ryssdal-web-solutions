@@ -111,7 +111,19 @@ p { line-height: 1.75; }
 .contact-box p { color: #d6e0dc; }
 .contact-email { color: var(--accent); overflow-wrap: anywhere; }
 .contact-form { position: relative; padding: clamp(1.25rem, 3vw, 2rem); }
-.contact-form .form-control { background: #faf9f6; color: var(--ink); border: 1px solid #bdcbb4; }
+.contact-form .form-control {
+  background-color: #faf9f6;
+  color: #123e3b;
+  -webkit-text-fill-color: #123e3b;
+  caret-color: #123e3b;
+  color-scheme: light;
+  border: 1px solid #bdcbb4;
+}
+.contact-form .form-control:is(:autofill, :-webkit-autofill) {
+  -webkit-text-fill-color: #123e3b;
+  caret-color: #123e3b;
+  box-shadow: inset 0 0 0 1000px #faf9f6;
+}
 .contact-form .form-control:focus { border-color: var(--accent); outline: 2px solid var(--accent); outline-offset: 2px; box-shadow: none; }
 .contact-form textarea { resize: vertical; min-height: 150px; }
 .contact-form .form-label { font-size: .9rem; }
