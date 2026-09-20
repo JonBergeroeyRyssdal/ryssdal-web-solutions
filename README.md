@@ -17,6 +17,7 @@ Kopier `.env.example` til `.env.local` og sett `SITE_URL` til det faktiske domen
 
 ```powershell
 npm.cmd run lint
+npm.cmd test
 npm.cmd run build
 npm.cmd start
 ```
@@ -51,3 +52,19 @@ Hver språkadresse har egen canonical, oversatt tittel og beskrivelse, Open Grap
 Legg prosjekter i `src/data/projects.ts` med `title`, `category`, `description` og valgfri `href`. Bruk Kundeprosjekt, Demoprosjekt eller Studieprosjekt. Legg til `translations: { en: { title: "...", description: "..." }, es: { title: "...", description: "..." } }` for oversatte prosjekttekster. Originalteksten brukes dersom oversettelse mangler.
 
 Kontaktlenkene åpner e-post eller telefon. Foretakets organisasjonsnummer legges til når registreringen er klar.
+
+## Kontaktskjema og Resend
+
+Skjemaet på alle tre språk sender via `POST /api/contact` til adressen i `src/data/contact.ts`. Ingen henvendelser lagres i en egen database eller skrives til applikasjonslogger. E-posten inneholder navn, e-post, firma, telefon og melding. Reply-To settes til besøkendes adresse slik at du kan svare direkte.
+
+1. Opprett en Resend-konto og verifiser avsenderdomenet med DNS-postene Resend oppgir. Se https://resend.com/docs/dashboard/domains/introduction.
+2. Opprett en API-nøkkel med tilgang til sending. Sett `RESEND_API_KEY` i `.env.local` og i hostingtjenestens miljøvariabler. Ikke legg nøkkelen i kildekode eller bruk `NEXT_PUBLIC_`.
+3. Sett `CONTACT_FROM_EMAIL` til en adresse på det verifiserte domenet, for eksempel `Ryssdal Web Solutions <nettside@ryssdalwebsolutions.no>`. Mottakeren er `jon@ryssdalwebsolutions.no`.
+4. Sett `SITE_URL` til nettstedets faktiske origin (også riktig port ved lokal testing). Start serveren på nytt etter endringene. Hosting må støtte Next.js-serverruter; statisk eksport er ikke tilstrekkelig.
+5. Send en test fra skjemaet etter oppsett. Kontroller mottak i innboksen, eventuell søppelpost og at Svar går til avsenderen. Resends aksept av meldingen er ikke en garanti for levering til innboksen.
+
+Ved manglende oppsett eller sendefeil vises en feilmelding og direkte e-postlenke; teksten i skjemaet beholdes. Skjemaet har servervalidering, størrelsesgrense, et skjult spamfelt, kontroll av origin og maksimalt fem sendeforsøk per minutt per serverprosess. Dette er enkel spambeskyttelse: telleren nullstilles ved omstart og deles ikke mellom serverinstanser. Bruk hostingtjenestens rate limiting på `/api/contact` eller CAPTCHA hvis trafikk/spam krever sterkere beskyttelse. Origin-kontroll alene stopper ikke automatiserte klienter.
+
+Resend og e-postleverandøren behandler meldingsinnholdet selv om nettsiden ikke har egen database. Avklar lagring og sletting i disse tjenestene og tilpass personverninformasjonen til faktisk praksis.
+
+API-kontrakt: https://resend.com/docs/api-reference/emails/send-email.

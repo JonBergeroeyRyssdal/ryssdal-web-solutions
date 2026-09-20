@@ -31,5 +31,18 @@ export const nb = {
   clientProject: "Kundeprosjekt", demoProject: "Demoprosjekt", studyProject: "Studieprosjekt",
   footer: "Nettsider og digitale løsninger for bedrifter.",
   title: "Nettsider for bedrifter og organisasjoner | Ryssdal Web Solutions",
+  formTitle: "Send meg en melding",
+  formRequired: "Felter merket med * må fylles ut.",
+  formName: "Navn",
+  formEmail: "E-post",
+  formCompany: "Firma / organisasjon (valgfritt)",
+  formPhone: "Telefonnummer (valgfritt)",
+  formMessage: "Melding",
+  formPrivacy: "Opplysningene sendes til meg på e-post via Resend og brukes til å følge opp henvendelsen din. Ikke send sensitive opplysninger.",
+  formSend: "Send melding",
+  formSending: "Sender …",
+  formSuccess: "Takk! Meldingen er sendt. Jeg tar kontakt så snart jeg kan.",
+  formError: "Kunne ikke bekrefte sendingen. Prøv igjen, eller send e-post til",
+  formLimited: "For mange forsøk akkurat nå. Vent ett minutt og prøv igjen, eller send e-post til",
 };
 export type Dictionary = { [K in keyof typeof nb]: string };
