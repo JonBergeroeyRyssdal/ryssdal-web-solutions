@@ -45,4 +45,7 @@ export const es: Dictionary = {
   formSuccess: "¡Gracias! Tu mensaje se ha enviado. Me pondré en contacto contigo lo antes posible.",
   formError: "No se ha podido confirmar el envío. Inténtalo de nuevo o escribe a",
   formLimited: "Demasiados intentos. Espera un minuto y vuelve a intentarlo, o escribe a",
+  formSuccessTitle: "¡Gracias por ponerte en contacto!",
+  formSuccessReply: "Tu mensaje se ha enviado. Te responderé a {email} lo antes posible.",
+  formSendAnother: "Enviar otro mensaje",
 };

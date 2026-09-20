@@ -45,5 +45,8 @@ export const nb = {
   formSuccess: "Takk! Meldingen er sendt. Jeg tar kontakt så snart jeg kan.",
   formError: "Kunne ikke bekrefte sendingen. Prøv igjen, eller send e-post til",
   formLimited: "For mange forsøk akkurat nå. Vent ett minutt og prøv igjen, eller send e-post til",
+  formSuccessTitle: "Takk for henvendelsen!",
+  formSuccessReply: "Meldingen din er sendt. Jeg svarer deg på {email} så snart jeg kan.",
+  formSendAnother: "Send en ny melding",
 };
 export type Dictionary = { [K in keyof typeof nb]: string };
