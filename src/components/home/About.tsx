@@ -18,7 +18,7 @@ export default function About() {
         </div>
         <div className="col-md-8">
           <SectionHeading id="about-heading" eyebrow="Om meg">Hvem du jobber med</SectionHeading>
-          <p className="mb-0">Jeg heter Jon Bergerøy Ryssdal og står bak Ryssdal Web Solutions. Jeg er backend-utvikler utdannet ved Noroff og holder til i Moss. Du samarbeider direkte med meg fra første samtale til ferdig løsning.</p>
+          <p className="mb-0">Jeg heter Jon Bergerøy Ryssdal og står bak Ryssdal Web Solutions. Jeg er backend-utvikler og holder til i Moss. Du samarbeider direkte med meg fra første samtale til ferdig løsning.</p>
         </div>
       </div>
     </Section>

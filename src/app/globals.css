@@ -91,9 +91,17 @@ p { line-height: 1.75; }
 .hero-bottom { display: flex; flex-wrap: wrap; gap: 1rem 3rem; border-top: 1px solid #436762; margin-top: 4.5rem; padding: 1.4rem 0; font-size: .8rem; color: #d6e0dc; }
 .section-space { padding-block: 6rem; }
 .section-intro { color: var(--muted); font-size: 1.05rem; }
-.service-card { padding: 2rem; border: 1px solid #d8dfd7; border-radius: 6px; background: #fff; display: flex; flex-direction: column; }
+.service-card {
+  padding: clamp(1.5rem, 3vw, 2rem);
+  border: 1px solid #e3e8df;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(18, 62, 59, .02), 0 12px 32px rgba(18, 62, 59, .045);
+  display: flex;
+  flex-direction: column;
+}
 .service-number { color: #667d5c; font-size: .85rem; margin-bottom: 2.5rem; }
-.service-card h3 { font-size: 1.55rem; max-width: 260px; margin-bottom: 1rem; }
+.service-card h3 { font-size: 1.55rem; line-height: 1.25; text-wrap: balance; margin-bottom: 1rem; }
 .service-card p, .service-card li { color: var(--muted); font-size: .95rem; }
 .service-card > p:last-child { margin-bottom: 0; }
 .service-card ul { padding-left: 1.1rem; margin-bottom: 2rem; }
@@ -166,6 +174,9 @@ p { line-height: 1.75; }
 .contact-trap { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
 .site-footer { background: #0d302e; color: #ccdad4; font-size: .8rem; padding-block: 2rem; }
 .site-footer a { color: #ccdad4; }
+.site-footer address { font-style: normal; line-height: 1.75; }
+.site-footer a { overflow-wrap: anywhere; }
+.footer-business-details { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .75rem 2rem; margin-top: 2rem; padding-top: 1.25rem; border-top: 1px solid #436762; }
 @media (max-width: 767.98px) {
   .section-space { padding-block: 3.5rem; }
   .hero {
