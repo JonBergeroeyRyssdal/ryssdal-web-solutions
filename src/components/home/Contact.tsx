@@ -14,6 +14,7 @@ export default function Contact() {
           <div className="mt-4">
           <ArrowLink className="contact-email" href={`mailto:${contact.email}?subject=${encodeURIComponent("Nettløsning for min bedrift")}`}>{contact.email}</ArrowLink>
           <p className="mt-3 mb-0"><a className="contact-email" href={`tel:${contact.phone}`}>{contact.phoneLabel}</a></p>
+          <p className="hero-intro small mt-3 mb-0">Får du ikke svar når du ringer? Send gjerne en <a className="contact-email" href={`sms:${contact.phone}`}>SMS med hva det gjelder</a>, så ringer jeg tilbake så snart jeg har mulighet.</p>
           </div>
         </div>
         <div className="col-lg-7">
