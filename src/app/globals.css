@@ -19,8 +19,7 @@ h3 { font-size: 1.25rem; font-weight: 600; letter-spacing: -.025em; }
 p { line-height: 1.75; }
 .site-header { position: sticky; top: 0; z-index: 100; background: #faf9f6; border-bottom: 1px solid #dae0d9; }
 .site-brand { display: flex; align-items: center; gap: .7rem; max-width: calc(100% - 5rem); white-space: normal; font-size: 1rem; line-height: 1.15; letter-spacing: -.03em; }
-.brand-symbol { background: var(--ink); color: var(--accent); padding: .6rem .7rem; font-size: 1.3rem; flex-shrink: 0; }
-.brand-subtitle { display: block; font-size: .7rem; letter-spacing: .1em; font-weight: 400; margin-top: .3rem; }
+.brand-logo { display: block; width: clamp(205px, 23vw, 268px); max-width: 100%; height: auto; }
 .navbar .nav-link { color: var(--ink); font-size: .9rem; margin-inline: .35rem; }
 .navbar .nav-link.nav-contact {
   background-color: #123e3b;

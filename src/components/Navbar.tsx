@@ -1,6 +1,7 @@
 ﻿"use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useRef, useState } from "react";
 
 export default function Navbar() {
@@ -18,8 +19,7 @@ export default function Navbar() {
         }}>
         <div className="container">
           <Link className="navbar-brand site-brand fw-semibold" href="/" onClick={() => setIsOpen(false)} aria-label="Ryssdal Web Solutions – Hjem">
-            <span className="brand-symbol" aria-hidden="true">R /</span>
-            <span>RYSSDAL<span className="brand-subtitle">WEB SOLUTIONS</span></span>
+            <Image className="brand-logo" src="/ryssdal-logo.svg" alt="Ryssdal Web Solutions" width={268} height={56} />
           </Link>
           <button ref={toggleRef} className="navbar-toggler" type="button" aria-controls="main-navigation" aria-expanded={isOpen} aria-label={isOpen ? "Lukk meny" : "Åpne meny"} onClick={() => setIsOpen((open) => !open)}>
             <span className="navbar-toggler-icon" aria-hidden="true" />
