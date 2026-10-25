@@ -23,8 +23,8 @@ export default function WhyChooseMe() {
         </div>
         <div className="col-md-6">
           <ContentCard
-            title="Også de små oppdragene er velkomne"
-            description="Du trenger ikke et stort prosjekt for å ta kontakt. Jeg tar også mindre oppgraderinger, feilretting og nye funksjoner – oppdrag som ikke alltid passer inn hos større byråer. Vi tilpasser arbeidet til det du trenger, slik at et lite behov ikke blir et unødvendig stort prosjekt."
+            title="Start enkelt, bygg videre etter hvert"
+            description="Du trenger ikke gjøre alt på én gang. Vi starter med det viktigste og kan legge til flere funksjoner når behovet oppstår, i takt med budsjettet ditt. Det kan være booking, skjemaer eller koblinger til andre systemer. Også små oppgraderinger og enkeltoppdrag er velkomne."
           />
         </div>
         <div className="col-md-6">

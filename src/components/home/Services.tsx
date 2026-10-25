@@ -22,6 +22,32 @@ export default function Services() {
       <div className="mt-4">
         <p className="small text-body-secondary mb-0">{serviceDetails.pricingDisclaimer}</p>
       </div>
+      <div className="delivery-overview mt-5">
+        <div className="delivery-heading">
+          <p className="eyebrow">Din nye nettside</p>
+          <h3>Dette får du med en ny nettside</h3>
+          <p className="section-intro">Mobiltilpasning og grunnleggende søkemotoroptimalisering er inkludert. Resten av leveransen tilpasser vi behovet ditt og beskriver i tilbudet.</p>
+          <div className="delivery-included">
+            <span>Mobiltilpasset</span>
+            <span>Grunnleggende SEO</span>
+          </div>
+        </div>
+        <ul className="delivery-details">
+          {[
+            ["Innhold med en plan", "Vi avklarer hvilke sider, funksjoner og hvilket innhold som skal være med.", "M4 4h16v16H4z M8 8h8 M8 12h8 M8 16h4"],
+            ["Funksjoner du trenger", "Kontaktskjema, booking og andre funksjoner avtales etter behov.", "M12 3v18 M3 12h18"],
+            ["Klar for lansering", "Vi går gjennom løsningen sammen før lansering. Hjelp med publisering, domene og hosting avklares i tilbudet.", "m5 12 4 4L19 6"],
+            ["Oversikt over kostnadene", "Du får vite hva som inngår i prisen, og hvilke løpende kostnader som eventuelt kommer i tillegg.", "M6 3h12v18l-3-2-3 2-3-2-3 2V3Z M9 8h6 M9 12h6"],
+          ].map(([title, text, path]) => (
+            <li key={title}>
+              <span className="delivery-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d={path} /></svg>
+              </span>
+              <div><h4>{title}</h4><p>{text}</p></div>
+            </li>
+          ))}
+        </ul>
+      </div>
       <div className="collaboration-panel mt-5">
         <div className="collaboration-main">
           <p className="eyebrow">Slik samarbeider vi</p>

@@ -109,6 +109,18 @@ p { line-height: 1.75; }
 .service-card li::marker { color: #749044; }
 .service-card a { margin-top: auto; font-size: .85rem; font-weight: 600; }
 .examples-section { background: #edf0e8; }
+.delivery-overview { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: clamp(2rem, 5vw, 5rem); padding-block: clamp(2rem, 4vw, 3.5rem); border-block: 1px solid #d8dfd7; }
+.delivery-heading .eyebrow { color: var(--muted); font-size: .75rem; margin-bottom: 1rem; }
+.delivery-heading h3 { font-size: clamp(1.7rem, 2.8vw, 2.4rem); line-height: 1.2; margin-bottom: 1.25rem; text-wrap: balance; }
+.delivery-heading .section-intro { font-size: .95rem; }
+.delivery-included { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.5rem; }
+.delivery-included span { padding: .4rem .75rem; border-radius: 100px; background: #e9eedf; color: var(--ink); font-size: .75rem; font-weight: 600; }
+.delivery-details { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; list-style: none; padding: 0; margin: 0; }
+.delivery-icon { display: inline-flex; align-items: center; justify-content: center; width: 2.75rem; height: 2.75rem; border: 1px solid #d8dfd0; border-radius: 12px; background: #edf0e8; color: var(--ink); margin-bottom: 1rem; }
+.delivery-details h4 { font-size: 1rem; font-weight: 600; margin-bottom: .5rem; }
+.delivery-details p { font-size: .9rem; color: var(--muted); margin: 0; }
+@media (max-width: 991.98px) { .delivery-overview { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 575.98px) { .delivery-details { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; } .delivery-details li { display: flex; align-items: flex-start; gap: 1rem; } .delivery-icon { flex-shrink: 0; margin: 0; } }
 .collaboration-panel { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: clamp(2rem, 4vw, 4rem); padding: clamp(1.5rem, 4vw, 3.5rem); border: 1px solid #d8dfd0; border-radius: 12px; background: #edf0e8; }
 .collaboration-main .eyebrow { font-size: .75rem; color: var(--muted); margin-bottom: 1rem; }
 .collaboration-title { font-size: clamp(1.7rem, 2.8vw, 2.4rem); line-height: 1.15; letter-spacing: -.04em; max-width: 420px; margin-bottom: 1rem; }

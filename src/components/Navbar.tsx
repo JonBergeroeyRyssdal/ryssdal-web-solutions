@@ -3,9 +3,10 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useRef, useState } from "react";
+import { showProjects } from "@/data/projects";
 
 export default function Navbar() {
-  const links = [["Tjenester", "/#tjenester"], ["Prosjekter", "/#prosjekter"], ["Om meg", "/#om"], ["Kontakt", "/#kontakt"]];
+  const links = [["Tjenester", "/#tjenester"], ...(showProjects ? [["Prosjekter", "/#prosjekter"]] : []), ["Om meg", "/#om"], ["Spørsmål og svar", "/#sporsmal"], ["Kontakt", "/#kontakt"]];
   const [isOpen, setIsOpen] = useState(false);
   const toggleRef = useRef<HTMLButtonElement>(null);
   return (

@@ -1,3 +1,6 @@
+// Sett til true når prosjektene er klare til å vises på forsiden.
+export const showProjects = false;
+
 export type Project = {
   title: string;
   category: "Kundeprosjekt" | "Demoprosjekt" | "Studieprosjekt";
