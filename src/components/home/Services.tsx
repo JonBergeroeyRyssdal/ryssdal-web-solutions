@@ -12,15 +12,14 @@ export default function Services() {
           <div className="col-md-6" key={service.number}>
             <ContentCard title={service.title} description={service.text}>
               <div className="mt-auto pt-3 border-top">
-                <p className="mb-1"><strong>{service.price}</strong></p>
-                <p className="mb-0"><small>Veiledende pris inkl. mva.</small></p>
+                <p className="mb-1"><strong>{service.price ?? "Pris etter avtale."}</strong></p>
+                <p className="mb-0"><small>{service.price ? "Veiledende pris inkl. mva." : serviceDetails.fixedPriceNote}</small></p>
               </div>
             </ContentCard>
           </div>
         ))}
       </div>
       <div className="mt-4">
-        <p>{serviceDetails.fixedPriceNote}</p>
         <p className="small text-body-secondary mb-0">{serviceDetails.pricingDisclaimer}</p>
       </div>
       <div className="mt-5">
