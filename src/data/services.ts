@@ -2,7 +2,7 @@
   {
     number: "01",
     title: "Nettsider",
-    text: "En ny, mobilvennlig nettside som gjør det enkelt for kundene å finne deg og ta kontakt.",
+    text: "En ny, mobilvennlig nettside som gjør det enkelt for kundene å finne deg og ta kontakt. Grunnleggende søkemotoroptimalisering er inkludert.",
     price: null,
   },
   {
