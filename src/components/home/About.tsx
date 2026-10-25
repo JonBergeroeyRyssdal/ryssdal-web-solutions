@@ -1,13 +1,9 @@
-"use client";
-
-import { useLanguage } from "@/components/LanguageProvider";
 import Image from "next/image";
 import portrait from "../../../public/ryssdal-solutions.png";
 import Section from "@/components/ui/Section";
 import SectionHeading from "@/components/ui/SectionHeading";
 
 export default function About() {
-  const { t } = useLanguage();
   return (
     <Section id="om" className="about-section section-space" headingId="about-heading">
       <div className="row g-4 align-items-center">
@@ -21,8 +17,8 @@ export default function About() {
           />
         </div>
         <div className="col-md-8">
-          <SectionHeading id="about-heading" eyebrow={t.about}>{t.aboutTitle}</SectionHeading>
-          <p className="mb-0">{t.aboutText}</p>
+          <SectionHeading id="about-heading" eyebrow="Om meg">Hvem du jobber med</SectionHeading>
+          <p className="mb-0">Jeg heter Jon Bergerøy Ryssdal og står bak Ryssdal Web Solutions. Jeg er backend-utvikler utdannet ved Noroff og holder til i Moss. Du samarbeider direkte med meg fra første samtale til ferdig løsning.</p>
         </div>
       </div>
     </Section>

@@ -1,6 +1,6 @@
-﻿# Ryssdal Web Solutions
+# Ryssdal Web Solutions
 
-Next.js App Router, TypeScript og Bootstrap 5.
+Next.js App Router, TypeScript og Bootstrap 5. Nettsiden er kun på norsk.
 
 ## Utvikling
 
@@ -9,11 +9,29 @@ npm.cmd install
 npm.cmd run dev
 ```
 
-Åpne `/nb`, `/en` eller `/es` på adressen terminalen viser. `/` videresendes til `/nb`.
+Åpne `/` på adressen terminalen viser. Gamle adresser (`/nb`, `/en` og `/es`) videresendes til `/`.
+
+## Hvor endrer jeg hva?
+
+- `src/app/page.tsx`: rekkefølgen på seksjonene.
+- `src/app/layout.tsx`: felles layout og SEO-metadata.
+- `src/data/services.ts`: tjenester, priser og lengre tekst for Services-komponenten.
+- `src/data/contact-form.ts`: tekster og statusmeldinger for ContactForm-komponenten.
+- `src/data/projects.ts`: prosjekter med `title`, `category`, `description` og valgfri `href`. Kategorier: Kundeprosjekt, Demoprosjekt eller Studieprosjekt.
+- `src/data/contact.ts`: e-post og telefonnummer.
+- `src/components/home/`: seksjonene Hero, Services, About og Contact. FAQ, Process og SolutionExamples er beholdt, men vises ikke på forsiden.
+- `src/components/Projects.tsx`: prosjektoversikten.
+- `src/components/Navbar.tsx` og `Footer.tsx`: meny og footer.
+- `src/components/ui/`: felles seksjoner, overskrifter, kort og lenker.
+- `src/app/globals.css`: farger, typografi og responsivt design.
+- `src/lib/site.ts`: domenet fra `SITE_URL`.
+- `src/app/sitemap.ts` og `robots.ts`: sitemap og søkemotorinnstillinger.
+
+Korte tekster ligger direkte i komponentene som viser dem. Større innholdsmengder har egne datafiler for den aktuelle komponenten. SEO-tittel og metabeskrivelse redigeres i `src/app/layout.tsx`. Bare menyen og kontaktskjemaet trenger klientkomponenter for interaktivitet.
 
 ## Produksjon og kontroller
 
-Kopier `.env.example` til `.env.local` og sett `SITE_URL` til det faktiske domenet, for eksempel `https://ditt-domene.no`, før produksjonsbygg. Verdien skal bare inneholde protokoll og domene, uten sti, query eller fragment. Lokalt brukes `http://localhost:3000` hvis variabelen mangler. Ikke publiser med localhost som SITE_URL.
+Kopier `.env.example` til `.env.local` og sett `SITE_URL` til det faktiske domenet før produksjonsbygg, for eksempel `https://ditt-domene.no`. Verdien skal bare inneholde protokoll og domene, uten sti, query eller fragment. Lokalt brukes `http://localhost:3000` hvis variabelen mangler.
 
 ```powershell
 npm.cmd run lint
@@ -22,40 +40,9 @@ npm.cmd run build
 npm.cmd start
 ```
 
-## Språk og SEO
-
-- `src/app/[lang]/layout.tsx`: HTML-språk, servergenererte metadata og felles layout.
-- `src/app/[lang]/page.tsx`: rekkefølgen på seksjonene.
-- `src/i18n/nb.ts`, `en.ts`, `es.ts`: oversettelser. `title` brukes som SEO-tittel og `heroText` som metabeskrivelse.
-- `src/i18n/config.ts`: støttede språk og ordbøker.
-- `src/i18n/seo.ts`: domene og alternative språkadresser.
-- `src/app/sitemap.ts` og `robots.ts`: sitemap med alle tre språk og lenke fra robots.txt.
-
-Hver språkadresse har egen canonical, oversatt tittel og beskrivelse, Open Graph- og Twitter-metadata samt gjensidige hreflang-lenker. Norsk er x-default. Språkknappene er vanlige navigasjonslenker. Nettadressen bestemmer språk også ved direkte besøk, omlasting og deling. Det tidligere localStorage-valget brukes ikke lenger.
-
-`LanguageProvider` får språk og oversettelser fra serverlayouten. Den endrer ikke HTML-språk eller metadata i etterkant. Unsupported språk gir 404. Forsidens seksjonslenker beholder valgt språk.
-
-## Komponenter og innhold
-
-- `components/home/`: synlige seksjoner Hero, Services, About og Contact. FAQ, Process og SolutionExamples er beholdt, men ikke vist eller oversatt.
-- `components/Projects.tsx`: prosjektoversikt og tomtilstand.
-- `components/ui/Section.tsx`: seksjon med Bootstrap-container og kobling til overskrift.
-- `components/ui/SectionHeading.tsx`: overtekst og h2.
-- `components/ui/ContentCard.tsx`: kort med tittel, beskrivelse og valgfritt innhold.
-- `components/ui/ArrowLink.tsx`: lenke med dekorativ pil.
-- `data/services.ts`: setter sammen tjenester fra språkfilen.
-- `data/contact.ts`: felles kontaktinformasjon.
-- `app/globals.css`: farger, typografi og responsivt design.
-
-## Prosjekter
-
-Legg prosjekter i `src/data/projects.ts` med `title`, `category`, `description` og valgfri `href`. Bruk Kundeprosjekt, Demoprosjekt eller Studieprosjekt. Legg til `translations: { en: { title: "...", description: "..." }, es: { title: "...", description: "..." } }` for oversatte prosjekttekster. Originalteksten brukes dersom oversettelse mangler.
-
-Kontaktlenkene åpner e-post eller telefon. Foretakets organisasjonsnummer legges til når registreringen er klar.
-
 ## Kontaktskjema og Resend
 
-Skjemaet på alle tre språk sender via `POST /api/contact` til adressen i `src/data/contact.ts`. Ingen henvendelser lagres i en egen database eller skrives til applikasjonslogger. E-posten inneholder navn, e-post, firma, telefon og melding. Reply-To settes til besøkendes adresse slik at du kan svare direkte.
+Kontaktskjemaet sender via `POST /api/contact` til adressen i `src/data/contact.ts`. Ingen henvendelser lagres i en egen database eller skrives til applikasjonslogger. E-posten inneholder navn, e-post, firma, telefon og melding. Reply-To settes til besøkendes adresse slik at du kan svare direkte.
 
 1. Opprett en Resend-konto og verifiser avsenderdomenet med DNS-postene Resend oppgir. Se https://resend.com/docs/dashboard/domains/introduction.
 2. Opprett en API-nøkkel med tilgang til sending. Sett `RESEND_API_KEY` i `.env.local` og i hostingtjenestens miljøvariabler. Ikke legg nøkkelen i kildekode eller bruk `NEXT_PUBLIC_`.
