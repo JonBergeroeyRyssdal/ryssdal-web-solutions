@@ -140,8 +140,18 @@ p { line-height: 1.75; }
 .step-number { display: inline-flex; align-items: center; justify-content: center; width: 2.4rem; height: 2.4rem; border-radius: 50%; background: #e9eedf; font-size: .75rem; margin-bottom: 1.5rem; }
 .process-step p { font-size: .95rem; color: var(--muted); }
 .about-section { border-block: 1px solid #d8dfd7; }
-.about-portrait { display: block; width: 100%; max-width: 320px; height: auto; border-radius: 8px; }
-@media (max-width: 767.98px) { .about-portrait { max-width: 240px; } }
+.about-panel { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); overflow: hidden; border-radius: 16px; background: #edf0e8; }
+.about-image { position: relative; min-height: 410px; }
+.about-image::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(90deg, transparent 65%, #edf0e8 100%); }
+.about-portrait { display: block; position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 25% center; }
+.about-content { align-self: center; padding: clamp(2rem, 4vw, 4rem); }
+.about-content > p:last-child { color: var(--muted); max-width: 540px; }
+@media (max-width: 767.98px) {
+  .about-panel { grid-template-columns: minmax(0, 1fr); }
+  .about-image { min-height: 0; aspect-ratio: 4 / 3; }
+  .about-image::after { background: linear-gradient(180deg, transparent 70%, #edf0e8 100%); }
+  .about-content { padding: 1.5rem 1.5rem 2rem; }
+}
 .about-lead { font-size: 1.35rem; line-height: 1.6; }
 .faq details { border-bottom: 1px solid #d8dfd7; padding-block: 1.3rem; }
 .faq details:first-child { border-top: 1px solid #d8dfd7; }
