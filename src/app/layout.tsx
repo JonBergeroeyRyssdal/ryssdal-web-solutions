@@ -12,6 +12,9 @@ export const metadata: Metadata = {
   metadataBase: siteUrl,
   title,
   description,
+  verification: {
+    google: "XZUk7LHIahsRmU4qu7B_rGXgzcJRjxyadGLauDtk6V0",
+  },
   alternates: { canonical: "/" },
   openGraph: {
     title,
