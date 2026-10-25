@@ -55,7 +55,7 @@ p { line-height: 1.75; }
 .hero > .container { position: relative; }
 .hero h1, .hero .eyebrow { color: #fff; }
 .hero h1 span { color: var(--accent); }
-.eyebrow { font-size: .95rem; letter-spacing: .1em; font-weight: 700; margin-bottom: 1.3rem; }
+.eyebrow { font-size: .85rem; letter-spacing: .1em; font-weight: 700; text-transform: uppercase; margin-bottom: 1.3rem; }
 .status-dot { display: inline-block; width: .5rem; height: .5rem; border-radius: 50%; background: var(--accent); margin-right: .5rem; }
 .hero-intro { max-width: 620px; color: #d6e0dc; font-size: 1.1rem; margin-top: 1.5rem; }
 .btn { padding: .9rem 1.2rem; font-weight: 600; font-size: .9rem; border-radius: 4px; }
@@ -109,25 +109,15 @@ p { line-height: 1.75; }
 .service-card li::marker { color: #749044; }
 .service-card a { margin-top: auto; font-size: .85rem; font-weight: 600; }
 .examples-section { background: #edf0e8; }
-.delivery-overview { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: clamp(2rem, 5vw, 5rem); padding-block: clamp(2rem, 4vw, 3.5rem); border-block: 1px solid #d8dfd7; }
-.delivery-heading .eyebrow { color: var(--muted); font-size: .75rem; margin-bottom: 1rem; }
-.delivery-heading h3 { font-size: clamp(1.7rem, 2.8vw, 2.4rem); line-height: 1.2; margin-bottom: 1.25rem; text-wrap: balance; }
-.delivery-heading .section-intro { font-size: .95rem; }
 .delivery-included { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.5rem; }
-.delivery-included span { padding: .4rem .75rem; border-radius: 100px; background: #e9eedf; color: var(--ink); font-size: .75rem; font-weight: 600; }
-.delivery-details { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; list-style: none; padding: 0; margin: 0; }
-.delivery-icon { display: inline-flex; align-items: center; justify-content: center; width: 2.75rem; height: 2.75rem; border: 1px solid #d8dfd0; border-radius: 12px; background: #edf0e8; color: var(--ink); margin-bottom: 1rem; }
-.delivery-details h4 { font-size: 1rem; font-weight: 600; margin-bottom: .5rem; }
-.delivery-details p { font-size: .9rem; color: var(--muted); margin: 0; }
-@media (max-width: 991.98px) { .delivery-overview { grid-template-columns: minmax(0, 1fr); } }
-@media (max-width: 575.98px) { .delivery-details { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; } .delivery-details li { display: flex; align-items: flex-start; gap: 1rem; } .delivery-icon { flex-shrink: 0; margin: 0; } }
+.delivery-included span { padding: .4rem .75rem; border-radius: 100px; background: var(--accent); color: var(--ink); font-size: .75rem; font-weight: 600; }
 .collaboration-panel { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: clamp(2rem, 4vw, 4rem); padding: clamp(1.5rem, 4vw, 3.5rem); border: 1px solid #d8dfd0; border-radius: 12px; background: #edf0e8; }
 .collaboration-main .eyebrow { font-size: .75rem; color: var(--muted); margin-bottom: 1rem; }
-.collaboration-title { font-size: clamp(1.7rem, 2.8vw, 2.4rem); line-height: 1.15; letter-spacing: -.04em; max-width: 420px; margin-bottom: 1rem; }
+.collaboration-title { font-size: clamp(1.7rem, 2.8vw, 2.4rem); line-height: 1.2; letter-spacing: -.04em; max-width: 420px; margin-bottom: 1.25rem; text-wrap: balance; }
 .collaboration-intro { color: var(--muted); max-width: 540px; }
 .collaboration-benefits { list-style: none; padding: 0; margin: 2rem 0 0; display: grid; gap: 1.5rem; }
 .collaboration-benefits li { display: flex; align-items: flex-start; gap: 1rem; }
-.collaboration-icon { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; width: 2.25rem; height: 2.25rem; border-radius: 50%; background: var(--accent); color: var(--ink); }
+.collaboration-icon { font-size: .75rem; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; width: 2.25rem; height: 2.25rem; border-radius: 50%; background: var(--accent); color: var(--ink); }
 .collaboration-benefits h4 { font-size: 1rem; font-weight: 600; margin: .35rem 0 .4rem; }
 .collaboration-benefits p { color: var(--muted); font-size: .95rem; margin: 0; }
 .collaboration-payment { align-self: start; padding: clamp(1.25rem, 2.5vw, 2rem); border: 1px solid #d8dfd0; border-radius: 8px; background: #faf9f6; }
@@ -160,7 +150,13 @@ p { line-height: 1.75; }
 .contact-box { border: 1px solid #5a7772; padding: 2rem; border-radius: 6px; }
 .contact-box p { color: #d6e0dc; }
 .contact-email { color: var(--accent); overflow-wrap: anywhere; }
-.contact-form { position: relative; padding: clamp(1.25rem, 3vw, 2rem); }
+.contact-section .hero-intro.small { font-size: .95rem; }
+.contact-form { position: relative; padding: clamp(1.5rem, 3.5vw, 2.75rem); border-color: #52746d; border-radius: 16px; background: #1b4843; box-shadow: 0 16px 48px rgba(0, 0, 0, .1); }
+.contact-form-heading { display: flex; align-items: center; gap: 1rem; padding-bottom: 1.75rem; margin-bottom: 1.75rem; border-bottom: 1px solid #52746d; }
+.contact-form-heading h3 { font-size: clamp(1.4rem, 2vw, 1.75rem); margin-bottom: .4rem; }
+.contact-form-symbol { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; width: 3rem; height: 3rem; border-radius: 12px; background: var(--accent); color: var(--ink); }
+.contact-form-footer { display: grid; gap: 1.25rem; margin-top: 1.75rem; padding-top: 1.5rem; border-top: 1px solid #52746d; }
+.contact-form-footer .btn { display: flex; justify-content: space-between; align-items: center; width: 100%; padding: 1rem 1.25rem; border-radius: 8px; }
 .contact-form .form-control {
   background-color: #faf9f6;
   color: #123e3b;
@@ -168,7 +164,12 @@ p { line-height: 1.75; }
   caret-color: #123e3b;
   color-scheme: light;
   border: 1px solid #bdcbb4;
+  border-radius: 8px;
+  padding: .85rem 1rem;
+  font-size: 1rem;
+  line-height: 1.5;
 }
+.contact-form .form-control::placeholder { color: #687a75; -webkit-text-fill-color: #687a75; opacity: 1; }
 .contact-form .form-control:is(:autofill, :-webkit-autofill) {
   -webkit-text-fill-color: #123e3b;
   caret-color: #123e3b;
@@ -181,7 +182,7 @@ p { line-height: 1.75; }
 .contact-success h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
 .contact-success strong { color: #fff; overflow-wrap: anywhere; }
 .contact-success-icon { display: inline-flex; align-items: center; justify-content: center; width: 3rem; height: 3rem; margin-bottom: 1.25rem; border-radius: 50%; background: var(--accent); color: var(--ink); font-size: 1.8rem; }
-.contact-form .form-label { font-size: .9rem; }
+.contact-form .form-label { font-size: .85rem; font-weight: 600; margin-bottom: .6rem; }
 .contact-form .contact-feedback { border-left: 3px solid var(--accent); padding-left: 1rem; margin-top: 1.5rem; }
 .contact-trap { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
 .site-footer { background: #0d302e; color: #ccdad4; font-size: .8rem; padding-block: 2rem; }

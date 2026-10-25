@@ -17,20 +17,20 @@ export default function WhyChooseMe() {
         </div>
         <div className="col-md-6">
           <ContentCard
-            title="Konkurransedyktige priser og høy kvalitet"
-            description="Som selvstendig utvikler kan jeg holde kostnadene nede og tilby konkurransedyktige priser. Jeg legger vekt på gjennomarbeidede løsninger som er enkle å bruke, fungerer godt på mobil og er lette å videreutvikle."
+            title="Konkurransedyktige priser"
+            description="Som selvstendig utvikler kan jeg holde kostnadene nede. Du betaler for arbeidet med løsningen, og vi prioriterer det som gir mest verdi innenfor budsjettet ditt."
           />
         </div>
         <div className="col-md-6">
           <ContentCard
             title="Start enkelt, bygg videre etter hvert"
-            description="Du trenger ikke gjøre alt på én gang. Vi starter med det viktigste og kan legge til flere funksjoner når behovet oppstår, i takt med budsjettet ditt. Det kan være booking, skjemaer eller koblinger til andre systemer. Også små oppgraderinger og enkeltoppdrag er velkomne."
+            description="Du trenger ikke gjøre alt på én gang. Vi starter med det viktigste og kan legge til flere funksjoner når behovet oppstår. Også små oppgraderinger og enkeltoppdrag er velkomne."
           />
         </div>
         <div className="col-md-6">
           <ContentCard
-            title="Tydelige avtaler fra start"
-            description="Du får et konkret forslag med pris og omfang før vi starter. Jeg forklarer valgene i et språk du forstår, og endringer som påvirker pris eller omfang, avtaler vi før de gjennomføres."
+            title="Råd du kan forstå"
+            description="Jeg forklarer tekniske valg i et vanlig språk og hjelper deg å vurdere hva du trenger. Du trenger ingen teknisk bakgrunn for å være med på beslutningene."
           />
         </div>
       </div>

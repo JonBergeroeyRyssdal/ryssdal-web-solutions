@@ -70,42 +70,48 @@ export default function ContactForm() {
 
   return (
     <form className="contact-box contact-form" onSubmit={submit} aria-label={contactFormText.title} aria-describedby="contact-privacy" aria-busy={status === "sending"}>
-      <h3>{contactFormText.title}</h3>
-      <p className="small">{contactFormText.required}</p>
+      <div className="contact-form-heading">
+        <span className="contact-form-symbol" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="5" width="18" height="14" rx="3" /><path d="m3 7 9 6 9-6" /></svg>
+        </span>
+        <div><h3>{contactFormText.title}</h3><p className="small mb-0">{contactFormText.required}</p></div>
+      </div>
       <fieldset disabled={status === "sending"}>
         <legend className="visually-hidden">{contactFormText.title}</legend>
-        <div className="row g-3">
+        <div className="row g-4">
           <div className="col-sm-6">
             <label className="form-label" htmlFor="contact-name">{contactFormText.name} *</label>
-            <input ref={nameInput} className="form-control" id="contact-name" name="name" autoComplete="name" required maxLength={120} />
+            <input ref={nameInput} className="form-control" id="contact-name" name="name" placeholder="Ditt navn" autoComplete="name" required maxLength={120} />
           </div>
           <div className="col-sm-6">
             <label className="form-label" htmlFor="contact-email">{contactFormText.email} *</label>
-            <input className="form-control" id="contact-email" name="email" type="email" autoComplete="email" required maxLength={254} />
+            <input className="form-control" id="contact-email" name="email" type="email" placeholder="navn@bedrift.no" autoComplete="email" required maxLength={254} />
           </div>
           <div className="col-sm-6">
             <label className="form-label" htmlFor="contact-company">{contactFormText.company}</label>
-            <input className="form-control" id="contact-company" name="company" autoComplete="organization" maxLength={160} />
+            <input className="form-control" id="contact-company" name="company" placeholder="Bedrift eller organisasjon" autoComplete="organization" maxLength={160} />
           </div>
           <div className="col-sm-6">
             <label className="form-label" htmlFor="contact-phone">{contactFormText.phone}</label>
-            <input className="form-control" id="contact-phone" name="phone" type="tel" autoComplete="tel" maxLength={40} />
+            <input className="form-control" id="contact-phone" name="phone" type="tel" placeholder="Ditt telefonnummer" autoComplete="tel" maxLength={40} />
           </div>
           <div className="col-12">
             <label className="form-label" htmlFor="contact-subject">{contactFormText.subject} *</label>
-            <input className="form-control" id="contact-subject" name="subject" required maxLength={160} />
+            <input className="form-control" id="contact-subject" name="subject" placeholder="For eksempel ny nettside eller booking" required maxLength={160} />
           </div>
           <div className="col-12">
             <label className="form-label" htmlFor="contact-message">{contactFormText.message} *</label>
-            <textarea className="form-control" id="contact-message" name="message" rows={6} required maxLength={5000} />
+            <textarea className="form-control" id="contact-message" name="message" placeholder="Fortell litt om hva du trenger hjelp til. Det er helt greit om du ikke har alle detaljene ennå." rows={5} required maxLength={5000} />
           </div>
         </div>
         <div className="contact-trap" aria-hidden="true">
           <label htmlFor="contact-website">Website</label>
           <input id="contact-website" name="website" tabIndex={-1} autoComplete="off" />
         </div>
-        <p className="small mt-3" id="contact-privacy">{contactFormText.privacy}</p>
-        <button className="btn btn-accent" type="submit">{status === "sending" ? contactFormText.sending : contactFormText.send}</button>
+        <div className="contact-form-footer">
+          <p className="small mb-0" id="contact-privacy">{contactFormText.privacy}</p>
+          <button className="btn btn-accent" type="submit">{status === "sending" ? contactFormText.sending : contactFormText.send}<span aria-hidden="true">↗</span></button>
+        </div>
       </fieldset>
       <div role="status" aria-live="polite" aria-atomic="true">
         {(status === "error" || status === "limited") && (

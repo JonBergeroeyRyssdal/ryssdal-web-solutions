@@ -9,19 +9,15 @@ export const questions = [
   },
   {
     question: "Hvordan ordner vi domene og hosting?",
-    answer: "Har du allerede domene og hosting, undersøker vi om det kan brukes videre. Hvis ikke, avklarer vi hva løsningen trenger og hvem som bestiller og administrerer tjenestene. Eierskap, tilganger og løpende kostnader avklares før oppstart. Hosting, domene og tredjepartstjenester kommer i tillegg dersom annet ikke er avtalt."
+    answer: "Har du allerede domene og hosting, undersøker vi om det kan brukes videre. Hvis ikke, avklarer vi hva løsningen trenger og hvem som bestiller og administrerer tjenestene. Eierskap, tilganger og løpende kostnader avklares før oppstart."
   },
   {
     "question": "Hva koster en nettside eller nettløsning?",
-    "answer": "Det avhenger av innhold, funksjoner og integrasjoner. Etter en innledende samtale får du et forslag med avklart omfang og pris før vi setter i gang."
+    "answer": "Antall sider, funksjoner, integrasjoner og hvor mye hjelp du trenger med innhold, påvirker prisen. En enkel presentasjonsside har et annet omfang enn en løsning med booking eller innlogging. Vi vurderer behovet ditt før du får et tilbud."
   },
   {
     "question": "Må jeg vite nøyaktig hva jeg trenger?",
     "answer": "Nei. Fortell hva som tar tid i hverdagen, eller hva du ønsker at nettsiden skal gjøre. Så finner vi et passende utgangspunkt sammen."
-  },
-  {
-    "question": "Kan vi starte med en mindre løsning?",
-    "answer": "Ja. Vi kan avgrense første versjon til det viktigste og bygge videre etter at du har tatt den i bruk."
   },
   {
     "question": "Kan jeg endre innholdet på nettsiden selv?",
