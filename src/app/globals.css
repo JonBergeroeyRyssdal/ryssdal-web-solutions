@@ -80,6 +80,8 @@ p { line-height: 1.75; }
   --bs-btn-active-color: var(--ink);
 }
 .hero a:focus-visible { outline-color: var(--accent); }
+.hero-contact-link { color: var(--accent); font-weight: 600; }
+.hero-contact-link:hover { color: #e4f4b6; }
 .btn span { margin-left: .8rem; }
 .hero-note { border-left: 1px solid #5a7772; padding: 1rem 0 1rem 2.5rem; }
 .hero-note p { color: #d6e0dc; }
