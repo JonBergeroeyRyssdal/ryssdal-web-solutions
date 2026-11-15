@@ -1,4 +1,6 @@
 import { contact } from "@/data/contact";
+import ArrowLink from "@/components/ui/ArrowLink";
+import { portfolioUrl } from "@/data/portfolio";
 
 export default function Footer() {
   return (
@@ -8,6 +10,10 @@ export default function Footer() {
           <div className="col-md-5">
             <p className="fw-semibold mb-1">Ryssdal Web Solutions</p>
             <p className="mb-0">Nettsider og digitale løsninger for bedrifter, organisasjoner og foreninger.</p>
+            <div className="mt-3">
+              <ArrowLink href={portfolioUrl}>Min portefølje</ArrowLink>
+              <p className="mb-0 mt-1">Bli bedre kjent med meg og se flere av prosjektene mine.</p>
+            </div>
           </div>
           <div className="col-md-4">
             <p className="fw-semibold mb-1">Forretningsadresse</p>

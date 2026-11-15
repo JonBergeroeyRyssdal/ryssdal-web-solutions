@@ -2,6 +2,8 @@
 export const contactFormText = {
   successReply: "Meldingen din er sendt. Jeg svarer deg på {email} så snart jeg kan.",
   successTitle: "Takk for henvendelsen!",
+  copySent: "En kopi er sendt til e-postadressen din. Sjekk gjerne søppelpostmappen hvis du ikke finner den.",
+  copyFailed: "Henvendelsen er sendt til meg, men kopien til deg kunne ikke bekreftes. Du trenger ikke sende meldingen på nytt.",
   sendAnother: "Send en ny melding",
   title: "Send meg en melding",
   required: "Felt merket med * må fylles ut.",
@@ -11,7 +13,7 @@ export const contactFormText = {
   phone: "Telefonnummer",
   subject: "Emne",
   message: "Melding",
-  privacy: "Opplysningene sendes til meg på e-post via Resend og brukes til å følge opp henvendelsen din. Ikke send sensitive opplysninger.",
+  privacy: "Opplysningene sendes til meg på e-post via Resend og brukes til å følge opp henvendelsen din. Du får også en kopi på e-post. Ikke send sensitive opplysninger.",
   sending: "Sender …",
   send: "Send melding",
   limited: "For mange forsøk akkurat nå. Vent ett minutt og prøv igjen, eller send e-post til",

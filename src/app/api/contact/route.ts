@@ -85,7 +85,29 @@ export async function POST(request: Request) {
     if (!response.ok) return error(502);
     const result = await response.json();
     if (typeof result.id !== "string" || !result.id) return error(502);
-    return Response.json({ ok: true });
+    // A failed customer copy must not make an already received inquiry look unsent.
+    let copySent = false;
+    try {
+      const copy = await fetch("https://api.resend.com/emails", {
+        method: "POST",
+        headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
+        body: JSON.stringify({
+          from: `"Ryssdal Web Solutions" <${fromAddress}>`,
+          to: [email],
+          reply_to: contact.email,
+          subject: `Kopi av din henvendelse: ${subject}`,
+          text: `Hei ${name}!\n\nTakk for henvendelsen. Jeg svarer så snart jeg har mulighet. Her er en kopi av det du sendte inn.\n\nEmne: ${subject}\nNavn: ${name}\nE-post: ${email}\nFirma / organisasjon: ${company || "Ikke oppgitt"}\nTelefon: ${phone || "Ikke oppgitt"}\n\nMelding:\n${message}\n\nVennlig hilsen\nJon Bergerøy Ryssdal\nRyssdal Web Solutions\n${contact.email}`,
+        }),
+        signal: AbortSignal.timeout(5000),
+      });
+      if (copy.ok) {
+        const receipt = await copy.json();
+        copySent = typeof receipt.id === "string" && Boolean(receipt.id);
+      }
+    } catch {
+      // Report copy status separately; do not encourage duplicate submissions.
+    }
+    return Response.json({ ok: true, copySent });
   } catch {
     return error(502);
   }

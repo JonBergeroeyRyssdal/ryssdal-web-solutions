@@ -10,6 +10,7 @@ export default function ContactForm() {
   const nameInput = useRef<HTMLInputElement>(null);
   const focusNewMessage = useRef(false);
   const [sentEmail, setSentEmail] = useState("");
+  const [copySent, setCopySent] = useState(false);
   const [submittedHeight, setSubmittedHeight] = useState<number>();
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error" | "limited">("idle");
 
@@ -39,6 +40,8 @@ export default function ContactForm() {
       if (response.status === 429) {
         setStatus("limited");
       } else if (response.ok) {
+        const result = await response.json();
+        setCopySent(result.copySent === true);
         setSentEmail(String(data.email).trim());
         setStatus("success");
         form.reset();
@@ -59,6 +62,7 @@ export default function ContactForm() {
         <span className="contact-success-icon" aria-hidden="true">✓</span>
         <h3 id="contact-success-title">{contactFormText.successTitle}</h3>
         <p id="contact-success-description">{beforeEmail}<strong>{sentEmail}</strong>{afterEmail}</p>
+        <p>{copySent ? contactFormText.copySent : contactFormText.copyFailed}</p>
         <button className="btn btn-accent" type="button" onClick={() => {
           focusNewMessage.current = true;
           setSentEmail("");

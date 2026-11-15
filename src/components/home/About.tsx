@@ -2,6 +2,8 @@ import Image from "next/image";
 import portrait from "../../../public/ryssdal-solutions.png";
 import Section from "@/components/ui/Section";
 import SectionHeading from "@/components/ui/SectionHeading";
+import ArrowLink from "@/components/ui/ArrowLink";
+import { portfolioUrl } from "@/data/portfolio";
 
 export default function About() {
   return (
@@ -19,6 +21,9 @@ export default function About() {
         <div className="about-content">
           <SectionHeading id="about-heading" eyebrow="Om meg">Hvem du jobber med</SectionHeading>
           <p className="mb-0">Jeg heter Jon Bergerøy Ryssdal og står bak Ryssdal Web Solutions. Jeg er backend-utvikler og holder til i Moss, med særlig interesse for hvordan nettsider og systemer kan gjøre hverdagen enklere.</p>
+          <div className="mt-3">
+            <ArrowLink href={portfolioUrl}>Les mer om meg og mine prosjekter</ArrowLink>
+          </div>
         </div>
       </div>
     </Section>

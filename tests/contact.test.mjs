@@ -12,8 +12,9 @@ function setup(env = { SITE_URL: "https://example.com", RESEND_API_KEY: "test-ke
   const exports = {};
   const fetch = async (url, options) => {
     calls.push({ url, ...options });
-    if (result instanceof Error) throw result;
-    return Response.json(result, { status: upstreamStatus });
+    const outcome = typeof result === "function" ? result(calls.length) : result;
+    if (outcome instanceof Error) throw outcome;
+    return Response.json(outcome, { status: upstreamStatus });
   };
   new Function("require", "exports", "process", "fetch", compiled)(
     () => ({ contact: { email: "jon@ryssdalwebsolutions.no" } }), exports, { env }, fetch,
@@ -25,7 +26,7 @@ function setup(env = { SITE_URL: "https://example.com", RESEND_API_KEY: "test-ke
   return { send, calls };
 }
 
-test("sends only to the configured recipient with visitor Reply-To and plain text", async () => {
+test("sends inquiry to the configured recipient and a separate copy to the validated visitor", async () => {
   const { send, calls } = setup();
   assert.equal((await send({ ...valid, company: "Example", phone: "+47 12345678", to: "attacker@example.com" })).status, 200);
   const email = JSON.parse(calls[0].body);
@@ -36,6 +37,25 @@ test("sends only to the configured recipient with visitor Reply-To and plain tex
   assert.match(email.text, /Example/);
   assert.match(email.text, /\+47 12345678/);
   assert.equal(email.html, undefined);
+  assert.equal(calls.length, 2);
+  const copy = JSON.parse(calls[1].body);
+  assert.deepEqual(copy.to, [valid.email]);
+  assert.equal(copy.from, '"Ryssdal Web Solutions" <website@example.com>');
+  assert.equal(copy.reply_to, "jon@ryssdalwebsolutions.no");
+  assert.match(copy.subject, /Kopi av din henvendelse/);
+  assert.ok(copy.text.includes(valid.message));
+  assert.equal(copy.html, undefined);
+});
+
+test("reports copy acceptance separately without losing the original inquiry", async () => {
+  assert.deepEqual(await (await setup().send()).json(), { ok: true, copySent: true });
+  for (const failure of [{}, new Error("copy timeout")]) {
+    const { send, calls } = setup(undefined, count => count === 1 ? { id: "original" } : failure);
+    const response = await send();
+    assert.equal(response.status, 200);
+    assert.deepEqual(await response.json(), { ok: true, copySent: false });
+    assert.equal(calls.length, 2);
+  }
 });
 
 test("rejects malformed, missing, oversized and injected fields without sending", async () => {
@@ -88,5 +108,5 @@ test("limits sends per process and returns retry information", async () => {
   const response = await send();
   assert.equal(response.status, 429);
   assert.ok(Number(response.headers.get("retry-after")) > 0);
-  assert.equal(calls.length, 5);
+  assert.equal(calls.length, 10);
 });
