@@ -1,5 +1,5 @@
 import Image from "next/image";
-import portrait from "../../../public/ryssdal-solutions.png";
+import portrait from "../../../public/ryssdal-solutions-wall.png";
 import Section from "@/components/ui/Section";
 import SectionHeading from "@/components/ui/SectionHeading";
 import ArrowLink from "@/components/ui/ArrowLink";
@@ -14,8 +14,8 @@ export default function About() {
             src={portrait}
             alt="Jon Bergerøy Ryssdal"
             className="about-portrait"
-            sizes="(max-width: 767px) 100vw, (max-width: 1199px) 45vw, 580px"
-            placeholder="blur"
+            sizes="(max-width: 767px) 100vw, (max-width: 1199px) 600px, 640px"
+            quality={95}
           />
         </div>
         <div className="about-content">
